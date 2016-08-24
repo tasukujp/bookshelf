@@ -1,0 +1,16 @@
+.DS_Store
+*.swp
+Icon
+
+# Ignore bundler config.
+/.bundle
+/vendor/bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+
+# IntelliJ
+/.idea
+*.iml
