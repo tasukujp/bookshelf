@@ -1,0 +1,16 @@
+Rails:
+  Enabled: true
+
+AllCops:
+  TargetRubyVersion: 2.2
+  Include:
+    - '**/Rakefile'
+    - '**/config.ru'
+  Exclude:
+    - 'bin/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'vendor/**/*'
+    - 'out/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
