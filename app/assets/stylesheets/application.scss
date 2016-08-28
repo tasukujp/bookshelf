@@ -15,3 +15,32 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  padding: 60px 0 0 0;
+}
+
+/* header */
+header {
+  #logo {
+    float: left;
+    margin: 0 10px 0 0;
+    font-size: 1.7em;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding-top: 8px;
+    font-weight: bold;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .btn {
+    color: white !important;
+    padding: 5px 15px 5px 15px !important;
+    margin: 8px 15px 0 0;
+    &:hover {
+      background-color: #46b8da !important;
+    }
+  }
+}
