@@ -1,8 +1,5 @@
-Rails:
-  Enabled: true
-
 AllCops:
-  TargetRubyVersion: 2.2
+  TargetRubyVersion: 2.3
   Include:
     - '**/Rakefile'
     - '**/config.ru'
@@ -14,3 +11,18 @@ AllCops:
     - 'vendor/**/*'
     - 'out/**/*'
     - !ruby/regexp /old_and_unused\.rb$/
+
+Rails:
+  Enabled: true
+
+Documentation:
+  Enabled: false
+
+AsciiComments:
+  Enabled: false
+
+ClassAndModuleChildren:
+  Enabled: false
+
+LineLength:
+  Enabled: false
