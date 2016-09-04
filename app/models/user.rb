@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :timeoutable, authentication_keys: [:login]
+         :confirmable, :lockable, :timeoutable
+
   attr_accessor :login
 
   def self.find_for_database_authentication(warden_conditions)

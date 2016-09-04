@@ -1,0 +1,23 @@
+ja:
+  devise:
+    registrations:
+      new:
+        title: アカウント作成
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+        submit: 新規登録
+    sessions:
+      new:
+        title: ログイン
+        login: ユーザー名 or メールアドレス
+        password: パスワード
+        submit: ログイン
+    shared:
+      links:
+        sign_up: アカウントをお持ちでない方
+        sign_in: 既にアカウントをお持ちの方
+        forgot_your_password?: パスワードの再発行
+        didnt_receive_confirmation_instructions?: 確認メールの再送信
+        didnt_receive_unlock_instructions?: アカウントロックの確認

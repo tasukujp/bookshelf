@@ -3,3 +3,17 @@
     width: 100%;
   }
 }
+
+#sign-in {
+  .form-inline {
+    margin: -10px 0 5px 0;
+    .radio input[type="radio"],
+    .checkbox input[type="checkbox"] {
+      float: left;
+      margin-right: 5px;
+      label {
+        font-weight: normal;
+      }
+    }
+  }
+}

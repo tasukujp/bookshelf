@@ -16,6 +16,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$gray: #eaeaea;
+
 body {
   padding: 60px 0 0 0;
 }
@@ -55,4 +57,13 @@ header {
       background-color: #46b8da !important;
     }
   }
+}
+
+/* footer */
+footer {
+  margin-top: 30px;
+  padding: 10px 0 10px 0;
+  border-top: 1px solid $gray;
+  text-align: center;
+  color: #c4c9cd;
 }

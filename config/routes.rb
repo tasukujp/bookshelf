@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'home#index'
+
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
