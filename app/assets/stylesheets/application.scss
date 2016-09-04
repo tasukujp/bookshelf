@@ -57,6 +57,9 @@ header {
       background-color: #46b8da !important;
     }
   }
+  .dropdown-toggle {
+    font-size: 18px;
+  }
 }
 
 /* footer */
@@ -65,5 +68,5 @@ footer {
   padding: 10px 0 10px 0;
   border-top: 1px solid $gray;
   text-align: center;
-  color: #c4c9cd;
+  color: #778899;
 }

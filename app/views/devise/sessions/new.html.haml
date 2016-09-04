@@ -1,7 +1,6 @@
 %div#sign-in.row
   %div.col-md-4.col-md-offset-4
-    %h2
-      = t('.title')
+    %h2= t('.title')
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       %div.form-group
         = f.text_field :login, placeholder: t('.login'), autofocus: true, class: 'form-control'

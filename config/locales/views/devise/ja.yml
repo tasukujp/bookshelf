@@ -1,12 +1,24 @@
 ja:
   devise:
     registrations:
+      edit:
+        title: ユーザー情報
+        name: ユーザー名
+        email: メールアドレス
+        password: 新しいパスワード
+        password_help: leave blank if you don't want to change it
+        password_confirmation: パスワードの確認
+        current_password: 現在のパスワード
+        current_password_help: we need your current password to confirm your changes
+        submit: 編集
+        back: 戻る
+        account_deactivate_link: アカウントを削除
       new:
         title: アカウント作成
         name: ユーザー名
         email: メールアドレス
         password: パスワード
-        password_confirmation: パスワード確認
+        password_confirmation: パスワードの確認
         submit: 新規登録
     sessions:
       new:

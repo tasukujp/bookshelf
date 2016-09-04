@@ -15,3 +15,5 @@ Icon
 /.idea
 *.iml
 /out
+
+.byebug_history
