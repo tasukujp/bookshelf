@@ -1,4 +1,7 @@
 ja:
   layouts:
     header:
-      menu: Menu
+      sign_up: アカウント登録
+      sign_in: ログイン
+      sign_out: ログアウト
+      edit: アカウント情報

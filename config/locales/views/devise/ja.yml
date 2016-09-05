@@ -14,7 +14,7 @@ ja:
         back: 戻る
         account_deactivate_link: アカウントを削除
       new:
-        title: アカウント作成
+        title: アカウント登録
         name: ユーザー名
         email: メールアドレス
         password: パスワード
