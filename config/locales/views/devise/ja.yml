@@ -12,7 +12,11 @@ ja:
         current_password_help: we need your current password to confirm your changes
         submit: 編集
         back: 戻る
-        account_deactivate_link: アカウントを削除
+        account_deactivate_link: アカウント削除
+        account_deactivate_confirm: アカウントを削除すると復旧することができません。削除してもよろしいですか？
+        delete_title: アカウント削除確認
+        delete_cancel: キャンセル
+        delete_commit: 削除
       new:
         title: アカウント登録
         name: ユーザー名
