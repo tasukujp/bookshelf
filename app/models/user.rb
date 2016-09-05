@@ -6,7 +6,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable
 
+  has_many :user_books
+  has_many :books, through: :user_books
+
   attr_accessor :login
+
+  validates :name, presence: true, uniqueness: { allow_blank: true },
+                  length: { minimum: 6, maximum: 255, allow_blank: true }
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
