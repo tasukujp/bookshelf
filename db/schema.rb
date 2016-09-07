@@ -14,14 +14,14 @@
 ActiveRecord::Schema.define(version: 20160905162501) do
 
   create_table "books", force: :cascade do |t|
-    t.string   "isbn",         limit: 255
-    t.string   "title",        limit: 255
-    t.string   "author",       limit: 255
-    t.string   "manufacturer", limit: 255
-    t.string   "image_url",    limit: 255
-    t.string   "page_url",     limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "isbn",       limit: 255, null: false
+    t.string   "title",      limit: 255, null: false
+    t.string   "author",     limit: 255
+    t.string   "publisher",  limit: 255
+    t.string   "url",        limit: 255
+    t.string   "image",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "books", ["isbn"], name: "index_books_on_isbn", unique: true, using: :btree

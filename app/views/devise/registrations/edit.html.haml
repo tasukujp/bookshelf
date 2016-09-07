@@ -31,7 +31,8 @@
           = f.submit t('.submit'), class: 'btn btn-primary'
           = link_to t('.back'), :back, class: 'btn btn-default'
       %div.form-group
-        .col-md-9.col-md-offset-3
+        .col-md-9.col-md-offset-3#delete-account
+          %span.glyphicon.glyphicon-exclamation-sign
           = link_to t('.account_deactivate_link'), registration_path(resource_name), method: 'delete',
               title: t('.delete_title'), data: { confirm: t('.account_deactivate_confirm'),
               commit: t('.delete_commit'), cancel: t('.delete_cancel') }
