@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      book: ブック
+    attributes:
+      book:
+        isbn: ISBN
+        title: タイトル
+        author: 著者
+        publisher: 出版社
+        url: サイトURL
+        image: 画像URL

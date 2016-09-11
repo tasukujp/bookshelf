@@ -3,7 +3,13 @@
 one:
   user_id: 
   book_id: 
+  rental_date: 2016-09-10 16:57:45
+  due_date: 2016-09-10 16:57:45
+  return_date: 2016-09-10 16:57:45
 
 two:
   user_id: 
   book_id: 
+  rental_date: 2016-09-10 16:57:45
+  due_date: 2016-09-10 16:57:45
+  return_date: 2016-09-10 16:57:45

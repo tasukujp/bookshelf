@@ -1,2 +1,4 @@
 %h1 Home#index
 %p Find me in app/views/home/index.html.haml
+- if user_signed_in?
+  = link_to '本の登録', new_book_path, class: 'btn btn-default'

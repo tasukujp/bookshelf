@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable
 
-  has_many :user_books
+  has_many :user_books, dependent: :delete_all
   has_many :books, through: :user_books
 
   attr_accessor :login

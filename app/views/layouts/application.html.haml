@@ -10,9 +10,9 @@
     = render 'layouts/header'
     .container
       - if flash[:notice]
-        %p.alert.alert-success= flash[:notice]
+        %p.alert.alert-success= notice
       - if flash[:alert]
-        %p.alert.alert-danger= flash[:alert]
+        %p.alert.alert-danger= alert
       = yield
       = render 'layouts/footer'
       - if Rails.env.development?

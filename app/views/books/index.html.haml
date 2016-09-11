@@ -1,0 +1,18 @@
+%div.row
+  %div.col-md-6.col-md-offset-3
+    %ul.books
+      = @books.each do |book|
+        %li.row
+          %div.col-md-12.book-list
+            %div.book-image
+              = image_tag book.image, width: 100, height: 130
+            %div.book-isbn
+              = book.isbn
+            %div.book-title
+              = link_to book.title, book
+            %div.book-author
+              = book.author
+            %div.book-publisher
+              %span= book.publisher
+              %span
+              = book.published
