@@ -14,5 +14,10 @@
               = book.author
             %div.book-publisher
               %span= book.publisher
-              %span
-              = book.published
+              %span= book.published
+            - if book.rental?
+              = button_tag '貸出中', class: 'btn', disabled: true
+            - else
+              = form_for(book.user_books.build, remote: true) do |f|
+                = hidden_field_tag :book_id, book.id
+                = f.submit '借りる', class: 'btn btn-primary'
