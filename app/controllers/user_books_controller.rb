@@ -8,6 +8,11 @@ class UserBooksController < ApplicationController
     end
   end
 
-  def destroy
+  def update
+    user_book = UserBook.find(params[:id])
+    user_book.return
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: '本を返却しました。' }
+    end
   end
 end

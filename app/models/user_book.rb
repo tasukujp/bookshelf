@@ -7,4 +7,9 @@ class UserBook < ActiveRecord::Base
   validates :book_id, presence: true
   validates :rental_date, presence: true
   validates :due_date, presence: true
+
+  def return
+    self.return_date = Time.current
+    self.save!
+  end
 end
