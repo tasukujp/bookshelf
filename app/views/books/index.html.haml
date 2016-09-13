@@ -2,7 +2,7 @@
   %h3 借りている本
   %div.col-md-3
     %ul.books
-      = @rental_books.each do |book|
+      - @rental_books.each do |book|
         %li.row
           %div.col-md-12.book-list
             = image_tag book.image, width: 100, height: 130
@@ -10,7 +10,7 @@
               = f.submit '返却', class: 'btn btn-default'
   %div.col-md-6
     %ul.books
-      = @books.each do |book|
+      - @books.each do |book|
         %li.row
           %div.col-md-12.book-list
             %div.book-image
