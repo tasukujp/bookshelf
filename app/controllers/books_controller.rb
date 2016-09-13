@@ -4,9 +4,8 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
-    @rental_books = []
-    current_user.user_books.where(return_date: nil).each do |t|
-      @rental_books << Book.find(t.book_id)
+    @rental_books = current_user.user_books.where(return_date: nil).map do |t|
+      Book.find(t.book_id)
     end
   end
 
