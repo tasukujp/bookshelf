@@ -10,6 +10,6 @@ class UserBook < ActiveRecord::Base
 
   def return
     self.return_date = Time.current
-    self.save!
+    save!
   end
 end

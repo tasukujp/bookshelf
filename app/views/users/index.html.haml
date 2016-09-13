@@ -1,0 +1,19 @@
+%h2= t('.title')
+.row
+  .col-md-12
+    %table.table.table-bordered
+      %tr
+        %th= User.human_attribute_name :id
+        %th.col-md-2= User.human_attribute_name :name
+        %th.col-md-3= User.human_attribute_name :email
+        %th.col-md-2= User.human_attribute_name :last_sign_in_at
+        %th.col-md-2= User.human_attribute_name :updated_at
+        %th.col-md-2= User.human_attribute_name :created_at
+      - @users.each do |user|
+        %tr
+          %td.text-center= user.id
+          %td= user.name
+          %td= user.email
+          %td= user.last_sign_in_at
+          %td= user.updated_at
+          %td= user.created_at
