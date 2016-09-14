@@ -1,5 +1,5 @@
 %h2= t('.title')
-.row
+.row#users
   .col-md-12
     %table.table.table-bordered
       %tr
@@ -9,6 +9,7 @@
         %th.col-md-2= User.human_attribute_name :last_sign_in_at
         %th.col-md-2= User.human_attribute_name :updated_at
         %th.col-md-2= User.human_attribute_name :created_at
+        %th.text-center
       - @users.each do |user|
         %tr
           %td.text-center= user.id
@@ -17,3 +18,6 @@
           %td= user.last_sign_in_at
           %td= user.updated_at
           %td= user.created_at
+          %td.text-center.edit
+            = link_to user_path(user) do
+              %span.glyphicon.glyphicon-chevron-right
