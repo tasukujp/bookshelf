@@ -7,8 +7,8 @@ class Book < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true, length: { maximum: 64 }
   validates :author, length: { maximum: 32 }
   validates :publisher, length: { maximum: 16 }
-  validates :url, url_format: true
-  validates :image, url_format: true
+  validates :url, url_format: { ssl_only: false }
+  validates :image, url_format: { ssl_only: false }
 
   def rental(user)
     user_book = user_books.build do |t|
