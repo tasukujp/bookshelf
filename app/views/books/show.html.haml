@@ -1,14 +1,34 @@
-%div.row
-  %div.col-md-6.col-md-offset-3
-    %div.row
+#books-show
+  %div.row
+    %div.col-md-6.col-md-offset-3
       %div.book-image
-        = image_tag @book.image, width: 100, height: 130
-      %div.book-isbn
-        = @book.isbn
-      %div.book-title
-        = @book.title
-      %div.book-author
-        = @book.author
-      %div.book-publisher
-        %span= @book.publisher
-        %span= @book.published
+        = link_to @book.url, target: '_blank' do
+          = image_tag @book.image, width: 200, height: 260
+      %div.book-content
+        %h3.book-title
+          = link_to @book.title, @book.url, target: '_blank'
+        %div.row
+          %div.col-md-12
+            %span.book-author 著者 :
+            = @book.author
+        %div.row
+          %div.col-md-12
+            %span.book-publisher 出版社 :
+            = @book.publisher
+        %div.row
+          %div.col-md-12
+            %span.book-published 発売日 :
+            = @book.published
+        %div.row
+          %div.col-md-12
+            %span.book-isbn ISBN :
+            = @book.isbn
+        .actions
+          - if @book.rental?
+            = button_tag '貸出中', class: 'btn', disabled: true
+          - else
+            = form_for(@book.user_books.build) do |f|
+              = hidden_field_tag :book_id, @book.id
+              = f.submit '借りる', class: 'btn btn-primary',
+                data: { confirm: t('.book_rental_confirm', title: @book.title),
+                        commit: t('.commit'), cancel: t('.cancel') }

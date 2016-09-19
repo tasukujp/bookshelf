@@ -4,3 +4,8 @@ ja:
       title: 本の新規登録
       submit: 新規登録
       back: 戻る
+    show:
+      author: "著者 : %{author}"
+      book_rental_confirm: "%{title} の貸出処理をしてもよろしいですか？"
+      commit: はい
+      cancel: いいえ

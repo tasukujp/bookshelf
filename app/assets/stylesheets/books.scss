@@ -1,9 +1,45 @@
-.books {
-  .book-list {
-    padding: 10px;
-  }
-  .book-image {
+#books-list {
+  .books-image {
     float: left;
     margin-right: 10px;
+  }
+  .books-content {
+    float: left;
+  }
+  .books-title a {
+    font-weight: bold;
+    &:hover {
+      color: #e47911;
+      text-decoration: none;
+    }
+  }
+  .item {
+    padding: 10px;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
+#books-show {
+  margin-top: 30px;
+  .book-image {
+    float: left;
+    margin: 0 20px 0 0;
+  }
+  .book-title a {
+    font-weight: bold;
+    &:hover {
+      color: #e47911;
+      text-decoration: none;
+    }
+  }
+  .book-content {
+    float: left;
+    width: 330px;
+    .row {
+      line-height: 1.8;
+    }
+  }
+  .actions {
+    padding: 10px 0 0 0;
   }
 }
