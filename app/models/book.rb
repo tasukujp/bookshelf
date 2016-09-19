@@ -4,12 +4,14 @@ class Book < ActiveRecord::Base
   has_many :users, through: :user_books
 
   validates :isbn, presence: true, uniqueness: true, isbn_format: true
-  validates :title, presence: true, uniqueness: true, length: { maximum: 64 }
+  validates :title, presence: true, length: { maximum: 64 }
   validates :author, length: { maximum: 32 }
   validates :publisher, length: { maximum: 16 }
   validates :url, url_format: { ssl_only: false }
   validates :image, url_format: { ssl_only: false }
 
+  # 本の貸出処理
+  # @param [User] ユーザーオブジェクト
   def rental(user)
     user_book = user_books.build do |t|
       t.user_id = user.id
@@ -19,6 +21,8 @@ class Book < ActiveRecord::Base
     user_book.save!
   end
 
+  # 本が貸出中か?
+  # @return [Boolean]
   def rental?
     user_books.find { |v| v.return_date.nil? } ? true : false
   end
