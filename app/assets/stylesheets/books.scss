@@ -25,11 +25,13 @@
     float: left;
     margin: 0 20px 0 0;
   }
-  .book-title a {
+  .book-title {
     font-weight: bold;
-    &:hover {
-      color: #e47911;
-      text-decoration: none;
+    a {
+      &:hover {
+        color: #e47911;
+        text-decoration: none;
+      }
     }
   }
   .book-content {

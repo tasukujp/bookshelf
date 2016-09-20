@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
   validates :name, presence: true, uniqueness: { allow_blank: true },
-                  length: { minimum: 6, maximum: 16, allow_blank: true }
+                  length: { minimum: 4, maximum: 16, allow_blank: true }
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup

@@ -5,7 +5,9 @@ ja:
       submit: 新規登録
       back: 戻る
     show:
-      author: "著者 : %{author}"
+      submit: 借りる
+      submit_disable: 貸出中
+      title: 貸出確認
       book_rental_confirm: "%{title} の貸出処理をしてもよろしいですか？"
       commit: はい
       cancel: いいえ

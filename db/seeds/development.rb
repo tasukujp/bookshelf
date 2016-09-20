@@ -1,6 +1,8 @@
 User.delete_all
 User.create!([
-    { name: 'development', email: 'development@example.com', password: 'hogehoge',
+    { name: 'demo', email: 'demo@example.com', password: 'demopw',
+      confirmation_token: 'wUe2nSEj1vzEhMrnZTna', confirmed_at: '2016-09-10 09:00:00', confirmation_sent_at: '2016-09-10 09:00:00' },
+    { name: 'develop', email: 'develop@example.com', password: 'developpw',
       confirmation_token: 'wUe2nSEj1vzEhMrnZTnb', confirmed_at: '2016-09-10 09:00:00', confirmation_sent_at: '2016-09-10 09:00:00' }
 ])
 
@@ -37,3 +39,14 @@ Book.create!([
       url: 'https://www.amazon.co.jp/dp/4873117186',
       image: 'https://images-na.ssl-images-amazon.com/images/I/91euzd0lY4L.jpg' }
 ])
+
+50.times do |n|
+  isbn = "978-4-7973-00#{n+1}-X"
+  title = "テストデータ本-#{n+1}"
+  author = "テスト太郎-#{n+1}"
+  publisher = "テスト出版社-#{n+1}"
+  Book.create!(
+      isbn: isbn, title: title, author: author,
+      publisher: publisher, published: Time.current.to_date.to_s
+  )
+end

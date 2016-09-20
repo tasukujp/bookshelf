@@ -10,6 +10,12 @@ class Book < ActiveRecord::Base
   validates :url, url_format: { ssl_only: false }
   validates :image, url_format: { ssl_only: false }
 
+  # 画像URLが登録されていない場合はデフォルト画像を返す
+  # @return [String] 画像URL or デフォルト画像
+  def get_image
+    image.present? ? image : 'default.png'
+  end
+
   # 本の貸出処理
   # @param [User] ユーザーオブジェクト
   def rental(user)

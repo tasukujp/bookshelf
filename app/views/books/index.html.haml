@@ -17,7 +17,7 @@
             %div.col-md-12
               %div.books-image
                 = link_to book do
-                  = image_tag book.image, width: 100, height: 130
+                  = image_tag book.get_image, width: 100, height: 130
               %div.books-content
                 %h5.books-title
                   = link_to book.title, book
