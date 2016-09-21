@@ -1,37 +1,4 @@
 %div#book-new.row
   %div.col-md-6.col-md-offset-3
     %h2= t('.title')
-    = form_for(@book, html: { class: 'form-horizontal' }) do |f|
-      = error_messages_for @book
-      %div.form-group
-        = f.label :isbn, class: 'col-md-3 control-label'
-        %div.col-md-9
-          = f.text_field :isbn, autofocus: true, class: 'form-control'
-      %div.form-group
-        = f.label :title, class: 'col-md-3 control-label'
-        %div.col-md-9
-          = f.text_field :title, class: 'form-control'
-      %div.form-group
-        = f.label :author, class: 'col-md-3 control-label'
-        %div.col-md-9
-          = f.text_field :author, class: 'form-control'
-      %div.form-group
-        = f.label :publisher, class: 'col-md-3 control-label'
-        %div.col-md-9
-          = f.text_field :publisher, class: 'form-control'
-      %div.form-group
-        = f.label :published, class: 'col-md-3 control-label'
-        %div.col-md-9
-          = f.text_field :published, class: 'form-control'
-      %div.form-group
-        = f.label :url, class: 'col-md-3 control-label'
-        %div.col-md-9
-          = f.text_field :url, class: 'form-control'
-      %div.form-group
-        = f.label :image, class: 'col-md-3 control-label'
-        %div.col-md-9
-          = f.text_field :image, class: 'form-control'
-      %div.form-group
-        .actions.col-md-9.col-md-offset-3
-          = f.submit t('.submit'), class: 'btn btn-primary'
-          = link_to t('.back'), :back, class: 'btn btn-default'
+    = render 'form'

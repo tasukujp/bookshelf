@@ -18,7 +18,7 @@
               %div.books-image
                 = link_to book do
                   = image_tag book.get_image, width: 100, height: 130
-              %div.books-content
+              %div.books-info
                 %h5.books-title
                   = link_to book.title, book
                 %div.books-author
@@ -27,4 +27,4 @@
                   = book.publisher
                 %div.books-published
                   = book.published
-    = will_paginate @books
+    = will_paginate @books, previous_label: 'Previous', next_label: 'Next'

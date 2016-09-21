@@ -7,7 +7,7 @@
             = image_tag @book.get_image, width: 200, height: 260
         - else
           = image_tag @book.get_image, width: 200, height: 260
-      %div.book-content
+      %div.book-info
         %h3.book-title
           - if @book.url.present?
             = link_to @book.title, @book.url, target: '_blank'
@@ -30,11 +30,23 @@
             %span.book-isbn ISBN :
             = @book.isbn
         .actions
-          - if @book.rental?
-            = button_tag t('.submit_disable'), class: 'btn', disabled: true
-          - else
-            = form_for(@book.user_books.build) do |f|
-              = hidden_field_tag :book_id, @book.id
-              = f.submit t('.submit'), class: 'btn btn-primary', title: t('.title'),
-                data: { confirm: t('.book_rental_confirm', title: @book.title),
-                        commit: t('.commit'), cancel: t('.cancel') }
+          %div.book-user
+            = fa_icon 'user'
+            = t('.users_count_html', count: @book.users_count)
+          %div.row
+            %div.col-md-6
+              - if @book.rental?
+                = button_tag t('.submit_disable'), class: 'btn', disabled: true
+              - else
+                = form_for(@book.user_books.build) do |f|
+                  = hidden_field_tag :book_id, @book.id
+                  = f.submit t('.submit'), class: 'btn btn-primary', title: t('.rental_title'),
+                      data: { confirm: t('.book_rental_confirm', title: @book.title),
+                              commit: t('.commit'), cancel: t('.cancel') }
+            -# TODO:admin権限
+            %div.col-md-6.text-right
+              = link_to t('.edit'), edit_book_path(@book), class: 'btn btn-default'
+              = link_to t('.destroy'), @book, method: 'delete', class: 'btn btn-danger',
+                  title: t('.destroy_title'),
+                  data: { confirm: t('.book_destroy_confirm', title: @book.title),
+                          commit: t('.commit'), cancel: t('.cancel') }

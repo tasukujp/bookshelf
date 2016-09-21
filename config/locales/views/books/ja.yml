@@ -1,13 +1,27 @@
 ja:
   books:
+    form:
+      back: 戻る
     new:
       title: 本の新規登録
-      submit: 新規登録
-      back: 戻る
+      message:
+        notice: 本を登録しました。
+    edit:
+      title: 本の編集
+      message:
+        notice: 登録情報を更新しました。
+    destroy:
+      message:
+        notice: '%{title} を削除しました。'
     show:
+      edit: 編集
+      destroy: 削除
       submit: 借りる
       submit_disable: 貸出中
-      title: 貸出確認
-      book_rental_confirm: "%{title} の貸出処理をしてもよろしいですか？"
+      rental_title: 貸出確認
+      book_rental_confirm: '%{title} の貸出処理をしてもよろしいですか？'
+      destroy_title: 削除確認
+      book_destroy_confirm: '%{title} を削除してもよろしいですか？'
       commit: はい
       cancel: いいえ
+      users_count_html: '<span class="book-users-count">%{count}</span> 人が読みました。'

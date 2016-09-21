@@ -16,7 +16,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-      redirect_to root_url, notice: '新しく本を登録しました。'
+      redirect_to root_url, notice: t('books.new.message.notice')
     else
       render 'new'
     end
@@ -29,9 +29,16 @@ class BooksController < ApplicationController
   end
 
   def update
+    if @book.update_attributes(book_params)
+      redirect_to @book, notice: t('books.edit.message.notice')
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    Book.find(params[:id]).destroy
+    redirect_to root_path, notice: t('books.destroy.message.notice', title: @book.title)
   end
 
   private

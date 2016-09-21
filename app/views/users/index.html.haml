@@ -3,21 +3,21 @@
   .col-md-12
     %table.table.table-bordered
       %tr
-        %th.text-center= User.human_attribute_name :id
+        %th= User.human_attribute_name :id
         %th.col-md-2= User.human_attribute_name :name
         %th.col-md-3= User.human_attribute_name :email
         %th.col-md-2= User.human_attribute_name :last_sign_in_at
         %th.col-md-2= User.human_attribute_name :updated_at
         %th.col-md-2= User.human_attribute_name :created_at
-        %th.text-center
+        %th
       - @users.each do |user|
         %tr
           %td.text-center= user.id
           %td= user.name
           %td= user.email
-          %td= user.last_sign_in_at
-          %td= user.updated_at
-          %td= user.created_at
+          %td.text-center= l(user.last_sign_in_at, format: :date) if user.last_sign_in_at.present?
+          %td.text-center= l(user.updated_at, format: :date)
+          %td.text-center= l(user.created_at, format: :date)
           %td.text-center.edit
             = link_to user_path(user) do
               %span.glyphicon.glyphicon-chevron-right

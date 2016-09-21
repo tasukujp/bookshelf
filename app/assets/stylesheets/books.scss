@@ -3,8 +3,11 @@
     float: left;
     margin-right: 10px;
   }
-  .books-content {
+  .books-info {
     float: left;
+    div {
+      line-height: 1.5;
+    }
   }
   .books-title a {
     font-weight: bold;
@@ -34,14 +37,25 @@
       }
     }
   }
-  .book-content {
+  .book-info {
     float: left;
     width: 330px;
     .row {
       line-height: 1.8;
     }
+    .fa-user {
+      font-size: 1.3em;
+      color: #da4740;
+    }
   }
   .actions {
-    padding: 10px 0 0 0;
+    padding: 5px 0 0 0;
+    .book-user {
+      padding: 0 0 10px 0;
+      .book-users-count {
+        font-size: 1.3em;
+        font-weight: bold;
+      }
+    }
   }
 }
