@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = Book.all
+    @books = Book.paginate(page: params[:page], per_page: 10)
     @rental_books = current_user.user_books.where(return_date: nil).map do |t|
       Book.find(t.book_id)
     end
