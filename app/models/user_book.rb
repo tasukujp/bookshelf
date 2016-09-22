@@ -8,8 +8,19 @@ class UserBook < ActiveRecord::Base
   validates :rental_date, presence: true
   validates :due_date, presence: true
 
+  # 本の貸出情報を登録
+  # @param [User] ログインユーザー
+  # @return [Boolean] 登録結果
+  def register(user)
+    self.user_id = user.id
+    self.rental_date = Time.current
+    self.due_date = Time.current
+    self.save
+  end
+
+  # 本の返却処理
   def return
     self.return_date = Time.current
-    save!
+    self.save!
   end
 end

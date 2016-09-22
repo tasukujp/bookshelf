@@ -13,23 +13,12 @@ class Book < ActiveRecord::Base
   # 画像URLが登録されていない場合はデフォルト画像を返す
   # @return [String] 画像URL or デフォルト画像
   def get_image
-    image.present? ? image : 'default.png'
-  end
-
-  # 本の貸出処理
-  # @param [User] ユーザーオブジェクト
-  def rental(user)
-    user_book = user_books.build do |t|
-      t.user_id = user.id
-      t.rental_date = Time.current
-      t.due_date = Time.current
-    end
-    user_book.save!
+    self.image.present? ? self.image : 'default.png'
   end
 
   # 本が貸出中か?
   # @return [Boolean]
   def rental?
-    user_books.find { |v| v.return_date.nil? } ? true : false
+    self.user_books.find { |v| v.return_date.nil? } ? true : false
   end
 end

@@ -29,7 +29,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    if @book.update_attributes(book_params)
+    if @book.update(book_params)
       redirect_to @book, notice: t('books.edit.message.notice')
     else
       render 'edit'

@@ -1,6 +1,7 @@
 UserBook.delete_all
-
 User.delete_all
+Book.delete_all
+
 User.create!([
     { id: 1, name: 'demo', email: 'demo@example.com', password: 'demopw',
       confirmation_token: 'wUe2nSEj1vzEhMrnZTna', confirmed_at: '2016-09-10 09:00:00', confirmation_sent_at: '2016-09-10 09:00:00' },
@@ -8,7 +9,6 @@ User.create!([
       confirmation_token: 'wUe2nSEj1vzEhMrnZTnb', confirmed_at: '2016-09-10 09:00:00', confirmation_sent_at: '2016-09-10 09:00:00' }
 ])
 
-Book.delete_all
 Book.create!([
     { id: 1, isbn: '4797386290',
       title: 'たのしいRuby 第5版', author: '高橋 征義, 後藤 裕蔵',
@@ -55,9 +55,9 @@ Book.create!([
   )
 end
 
-user_books = Book.find(2).user_books.build do |t|
-  t.user_id = 2
-  t.rental_date = Time.current
-  t.due_date = Time.current
-end
-user_books.save!
+UserBook.create!([
+    { id: 1, user_id: 1, book_id: 2, rental_date: '2016-09-01 10:00:00',
+      due_date: '2016-09-08 23:59:59', return_date: '2016-09-07 17:00:00'},
+    { id: 2, user_id: 2, book_id: 2, rental_date: '2016-09-07 18:00:00',
+      due_date: '2016-09-14 23:59:59', return_date: nil}
+])

@@ -2,9 +2,12 @@
 class UserBooksController < ApplicationController
   def create
     @book = Book.find(params[:book_id])
-    @book.rental(current_user)
     respond_to do |format|
-      format.html { redirect_to root_path, notice: '新しく本を借りました。' }
+      if @book.user_books.build.register(current_user)
+        format.html { redirect_to root_path, notice: '本の貸出処理が完了しました。' }
+      else
+        format.html { render 'books/show' }
+      end
     end
   end
 
@@ -12,7 +15,7 @@ class UserBooksController < ApplicationController
     user_book = UserBook.find(params[:id])
     user_book.return
     respond_to do |format|
-      format.html { redirect_to root_path, notice: '本を返却しました。' }
+      format.html { redirect_to root_path, notice: '本の返却処理が完了しました。' }
     end
   end
 end
