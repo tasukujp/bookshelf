@@ -13,7 +13,7 @@ class Book < ActiveRecord::Base
   # 画像URLが登録されていない場合はデフォルト画像を返す
   # @return [String] 画像URL or デフォルト画像
   def get_image
-    self.image.present? ? self.image : 'default.png'
+    self.image.present? ? self.image : 'default_book.png'
   end
 
   # 本が貸出中か?

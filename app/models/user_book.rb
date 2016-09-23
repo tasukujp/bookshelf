@@ -8,6 +8,10 @@ class UserBook < ActiveRecord::Base
   validates :rental_date, presence: true
   validates :due_date, presence: true
 
+  def self.get_user_books_history(user)
+    UserBook.find_by_user_id(user.id)
+  end
+
   # 本の貸出情報を登録
   # @param [User] ログインユーザー
   # @return [Boolean] 登録結果

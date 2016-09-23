@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   # GET /users/:id
   def show
+    @user_books = @user.user_books
   end
 
   private

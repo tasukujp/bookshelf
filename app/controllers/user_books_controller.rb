@@ -4,9 +4,9 @@ class UserBooksController < ApplicationController
     @book = Book.find(params[:book_id])
     respond_to do |format|
       if @book.user_books.build.register(current_user)
-        format.html { redirect_to root_path, notice: '本の貸出処理が完了しました。' }
+        format.html { redirect_to @book, notice: '本の貸出処理が完了しました。' }
       else
-        format.html { render 'books/show' }
+        format.html { redirect_to @book, alert: '本の貸出が出来ませんでした。' }
       end
     end
   end

@@ -12,3 +12,35 @@
     }
   }
 }
+
+#users-show {
+  margin-top: 30px;
+  .user-image {
+    float: left;
+    margin: 0 20px 0 0;
+  }
+  .user-name {
+    font-weight: bold;
+  }
+  .user-info {
+    float: left;
+    width: 330px;
+    .row {
+      line-height: 1.8;
+    }
+    .fa-book {
+      font-size: 1.3em;
+      color: #4682b4;
+    }
+  }
+  .actions {
+    padding: 5px 0 0 0;
+    .user-book {
+      padding: 0 0 10px 0;
+      .user-books-count {
+        font-size: 1.3em;
+        font-weight: bold;
+      }
+    }
+  }
+}
