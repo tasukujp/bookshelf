@@ -14,6 +14,27 @@
           = t('.users_count_html', count: @user.books_count)
         %div.row
           %div.col-md-12
-            = link_to t('.edit'), edit_user_registration_path, class: 'btn btn-default'
+            - if current_user?(@user)
+              = link_to t('.edit'), edit_user_registration_path, class: 'btn btn-default'
   %div.col-md-6
-    %h3=t('.rental_history')
+    %h2=t('.rental_history')
+    %ul
+      - @user_books.each do |user_book|
+        %li.item
+          %div.row
+            %div.col-md-12
+              %div.books-image
+                = link_to user_book.book do
+                  = image_tag user_book.book.get_image, width: 100, height: 130
+              %div.books-info
+                %h5.books-title
+                  = link_to user_book.book.title, user_book.book
+                %div.books-author
+                  = user_book.book.author
+                %div.books-publisher
+                  = user_book.book.publisher
+                %div.books-published
+                  = user_book.book.published
+                %div.books-rental-date
+                  貸出日 :
+                  = l(user_book.rental_date, format: :date)

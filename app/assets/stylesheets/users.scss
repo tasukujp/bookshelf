@@ -43,4 +43,31 @@
       }
     }
   }
+  h2 {
+    position: relative;
+    padding: 0 0 .2em 1.6em;
+    border-bottom: 1px solid #ccc;
+  }
+  h2::before,
+  h2::after {
+    position: absolute;
+    content: '';
+    border-radius: 100%
+  }
+  h2::before {
+    top: .1em;
+    left: .1em;
+    z-index: 2;
+    width: 24px;
+    height: 24px;
+    background: rgba(150, 150, 150, .5);
+  }
+  h2::after {
+    top: .5em;
+    left: .5em;
+    width: 19px;
+    height: 19px;
+    background: rgba(210, 210, 210, .5);
+  }
+
 }

@@ -3,17 +3,22 @@ class UserBook < ActiveRecord::Base
   belongs_to :user, counter_cache: :books_count
   belongs_to :book, counter_cache: :users_count
 
+  default_scope { order(rental_date: :desc) }
+
   validates :user_id, presence: true
   validates :book_id, presence: true
   validates :rental_date, presence: true
   validates :due_date, presence: true
 
-  def self.get_user_books_history(user)
-    UserBook.find_by_user_id(user.id)
+  # 本の貸出履歴を取得
+  # @param [User] ユーザーオブジェクト
+  # @return [Array] UserBookとBookの配列
+  def self.get_rental_history(user)
+    UserBook.where(user_id: user.id).joins(:book).select('user_books.*, books.*')
   end
 
   # 本の貸出情報を登録
-  # @param [User] ログインユーザー
+  # @param [User] ユーザーオブジェクト
   # @return [Boolean] 登録結果
   def register(user)
     self.user_id = user.id
