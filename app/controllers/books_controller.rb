@@ -4,7 +4,6 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.paginate(page: params[:page], per_page: 10)
-    @rental_books = UserBook.get_rental_books(current_user)
   end
 
   def new

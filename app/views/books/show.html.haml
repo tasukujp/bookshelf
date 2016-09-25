@@ -4,9 +4,9 @@
       %div.book-image
         - if @book.url.present?
           = link_to @book.url, target: '_blank' do
-            = image_tag @book.get_image, width: 200, height: 260
+            = image_tag book_image_or_default(@book.image), width: 200, height: 260
         - else
-          = image_tag @book.get_image, width: 200, height: 260
+          = image_tag book_image_or_default(@book.image), width: 200, height: 260
       %div.book-info
         %h3.book-title
           - if @book.url.present?

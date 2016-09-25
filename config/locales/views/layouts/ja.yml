@@ -3,7 +3,8 @@ ja:
     header:
       sign_up: アカウント登録
       sign_in: ログイン
-      sign_out: ログアウト
-      profile: プロフィール
-      users: ユーザー管理
-      books: 本の一覧
+      sign_out_html: '<i class="fa fa-sign-out"></i>&nbsp;ログアウト'
+      profile_html: '<i class="fa fa-user"></i>&nbsp;プロフィール'
+      users_html: '<i class="fa fa-group"></i>&nbsp;ユーザー管理'
+      new_book_html: '<i class="fa fa-book"></i>&nbsp;新規登録'
+      bookshelf: 本棚

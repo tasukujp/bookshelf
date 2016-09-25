@@ -9,10 +9,8 @@ class UsersController < ApplicationController
 
   # GET /users/:id
   def show
-    @user_books = UserBook.get_rental_history(@user)
-    @rental_books = current_user.user_books.where(return_date: nil).map do |t|
-      Book.find(t.book_id)
-    end
+    @user_books = UserBook.get_rental_history(@user).paginate(page: params[:page], per_page: 5)
+    @rental_books = UserBook.get_rental_books(current_user)
   end
 
   private
