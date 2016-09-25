@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   # GET /users/:id
   def show
     @user_books = UserBook.get_rental_history(@user)
+    @rental_books = current_user.user_books.where(return_date: nil).map do |t|
+      Book.find(t.book_id)
+    end
   end
 
   private

@@ -1,45 +1,15 @@
 #books-list,
 #users-show {
-  .books-image {
-    float: left;
-    margin-right: 10px;
-  }
-  .books-info {
-    float: left;
+  .book-info {
     div {
       line-height: 1.5;
     }
-  }
-  .books-title a {
-    font-weight: bold;
-    &:hover {
-      color: #e47911;
-      text-decoration: none;
-    }
-  }
-  .item {
-    padding: 10px;
-    border-top: 1px solid #e8e8e8;
   }
 }
 
 #books-show {
   margin-top: 30px;
-  .book-image {
-    float: left;
-    margin: 0 20px 0 0;
-  }
-  .book-title {
-    font-weight: bold;
-    a {
-      &:hover {
-        color: #e47911;
-        text-decoration: none;
-      }
-    }
-  }
   .book-info {
-    float: left;
     width: 330px;
     .row {
       line-height: 1.8;
@@ -58,5 +28,34 @@
         font-weight: bold;
       }
     }
+  }
+}
+
+.book-item {
+  padding: 10px;
+}
+.book-image {
+  float: left;
+  margin: 0 20px 0 0;
+}
+.book-info {
+  float: left;
+}
+.book-title {
+  font-weight: bold;
+  a {
+    &:hover {
+      color: #e47911;
+      text-decoration: none;
+    }
+  }
+}
+.rental-item {
+  float: left;
+  width: 150px;
+  padding: 0 10px 10px 10px;
+  input[type=submit] {
+    width: 100%;
+    margin-top: 5px;
   }
 }

@@ -4,9 +4,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.paginate(page: params[:page], per_page: 10)
-    @rental_books = current_user.user_books.where(return_date: nil).map do |t|
-      Book.find(t.book_id)
-    end
+    @rental_books = UserBook.get_rental_books(current_user)
   end
 
   def new

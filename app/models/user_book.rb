@@ -17,6 +17,13 @@ class UserBook < ActiveRecord::Base
     UserBook.where(user_id: user.id).joins(:book).select('user_books.*, books.*')
   end
 
+  # 貸出中の本を取得
+  # @param [User] ユーザーオブジェクト
+  # @return [Array] Bookオブジェクトの配列
+  def self.get_rental_books(user)
+    user.user_books.where(return_date: nil).map { |t| Book.find(t.book_id) }
+  end
+
   # 本の貸出情報を登録
   # @param [User] ユーザーオブジェクト
   # @return [Boolean] 登録結果

@@ -1,5 +1,7 @@
 ja:
   books:
+    index:
+      title: 本棚
     form:
       back: 戻る
     new:

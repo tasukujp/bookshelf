@@ -1,0 +1,14 @@
+%div.row.book-item
+  %div.col-md-12
+    %div.book-image
+      = link_to book do
+        = image_tag book.get_image, width: 100, height: 130
+    %div.book-info
+      %h5.book-title
+        = link_to book.title, book
+      %div.book-author
+        = book.author
+      %div.book-publisher
+        = book.publisher
+      %div.book-published
+        = book.published

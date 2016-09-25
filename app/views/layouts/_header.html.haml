@@ -4,6 +4,8 @@
     %nav
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
+          %li= link_to '本棚', books_path
+          %li= link_to '登録', new_book_path
           %li.dropdown
             = link_to '#', class: 'dropdown-toggle', data: { toggle: :dropdown } do
               %span.glyphicon.glyphicon-list
