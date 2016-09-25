@@ -12,14 +12,14 @@ class User < ActiveRecord::Base
   attr_accessor :login
 
   validates :name, presence: true, uniqueness: { allow_blank: true },
-                  length: { minimum: 4, maximum: 16, allow_blank: true }
+                   length: { minimum: 4, maximum: 16, allow_blank: true }
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
-    if login = conditions.delete(:login)
-      where(conditions.to_h).where(['lower(name) = :value OR lower(email) = :value', { value: login.downcase }]).first
+    if (login = conditions.delete(:login))
+      find_by(conditions.to_h).where(['lower(name) = :value OR lower(email) = :value', { value: login.downcase }])
     elsif conditions.key?(:name) || conditions.key?(:email)
-      where(conditions.to_h).first
+      find_by(conditions.to_h)
     end
   end
 end

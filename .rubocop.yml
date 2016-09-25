@@ -26,3 +26,6 @@ ClassAndModuleChildren:
 
 LineLength:
   Enabled: false
+
+BlockComments:
+  Enabled: false
