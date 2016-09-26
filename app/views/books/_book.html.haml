@@ -12,3 +12,6 @@
         = book.publisher
       %div.book-published
         = book.published
+      - if defined?(user_book)
+        %div.book-rental-date
+          = t('.rental_date', date: l(user_book.rental_date, format: :date))

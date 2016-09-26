@@ -4,5 +4,8 @@ ja:
       title: ユーザー一覧
     show:
       edit: 編集
+      return: 返却
+      profile: プロフィール
+      rented: 貸出中
       rental_history: 貸出履歴
       users_count_html: '<span class="user-books-count">%{count}</span> 冊読みました。'

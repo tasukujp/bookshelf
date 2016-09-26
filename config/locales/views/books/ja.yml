@@ -27,3 +27,5 @@ ja:
       commit: はい
       cancel: いいえ
       users_count_html: '<span class="book-users-count">%{count}</span> 人が読みました。'
+    book:
+      rental_date: '貸出日 : %{date}'
