@@ -126,7 +126,7 @@ footer {
   }
 }
 
-/* header */
+/* header
 h2 {
   position: relative;
   padding: 0 0 .2em 1.6em;
@@ -152,4 +152,21 @@ h2::after {
   width: 19px;
   height: 19px;
   background: rgba(210, 210, 210, .5);
+}
+*/
+h2 {
+  position: relative;
+  padding-bottom: .2em;
+  margin-bottom: 20px;
+  border-bottom: 4px solid #ccc;
+  &:after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    z-index: 2;
+    content: '';
+    width: 20%;
+    height: 4px;
+    background-color: #3498db;
+  }
 }

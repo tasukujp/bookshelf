@@ -25,12 +25,13 @@ class UserBook < ActiveRecord::Base
   end
 
   # 本の貸出情報を登録
+  # 返却期限は7日後の23:59:59を設定
   # @param [User] ユーザーオブジェクト
   # @return [Boolean] 登録結果
   def register(user)
     self.user_id = user.id
     self.rental_date = Time.current
-    self.due_date = Time.current
+    self.due_date = self.rental_date.since(7.days).end_of_day
     save
   end
 

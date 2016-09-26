@@ -11,8 +11,11 @@ class Book < ActiveRecord::Base
   validates :image, url_format: { ssl_only: false }
 
   # 本が貸出中か?
+  # @param [User] ユーザーオブジェクト
   # @return [Boolean]
-  def rental?
-    user_books.find { |v| v.return_date.nil? } ? true : false
+  def rental?(user = nil)
+    user_books.find { |v|
+      (user.nil? || v.user_id == user.id) && v.return_date.nil?
+    } ? true : false
   end
 end

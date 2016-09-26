@@ -26,11 +26,13 @@
               %div.col-md-12
                 = image_tag book_image_or_default(book.image), width: 100, height: 130
                 = form_for(book.user_books.find_by(user_id: current_user.id, return_date: nil), remote: true) do |f|
-                  = f.submit t('.return'), class: 'btn btn-info'
+                  = f.submit t('.return'), class: 'btn btn-default', title: t('.return_title'),
+                      data: { confirm: t('.book_return_confirm', title: book.title),
+                              commit: t('.commit'), cancel: t('.cancel') }
   %div.col-md-6
     %h2=t('.rental_history')
     - @user_books.each do |user_book|
-      = render 'books/book', book: user_book.book, user_book: user_book
+      = render 'books/book', book: user_book.book, user_book: user_book, user: @user
       - if @user_books.last != user_book
         %hr
     = will_paginate @user_books, previous_label: 'Previous', next_label: 'Next'

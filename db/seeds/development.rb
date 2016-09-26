@@ -6,7 +6,7 @@ User.create!([
     { id: 1, name: 'demo', email: 'demo@example.com', password: 'demopw',
       confirmation_token: 'wUe2nSEj1vzEhMrnZTna', confirmed_at: '2016-09-10 09:00:00', confirmation_sent_at: '2016-09-10 09:00:00' },
     { id: 2, name: 'develop', email: 'develop@example.com', password: 'developpw',
-      confirmation_token: 'wUe2nSEj1vzEhMrnZTnb', confirmed_at: '2016-09-10 09:00:00', confirmation_sent_at: '2016-09-10 09:00:00' }
+      confirmation_token: 'wUe2nSEj1vzEhMrnZTnb', confirmed_at: '2016-09-10 09:00:00', confirmation_sent_at: '2016-09-10 09:00:00' },
 ])
 
 Book.create!([
@@ -39,7 +39,7 @@ Book.create!([
       title: 'Javaパフォーマンス', author: 'Scott Oaks',
       publisher: 'オライリージャパン', published: '2015/4/11',
       url: 'https://www.amazon.co.jp/dp/4873117186',
-      image: 'https://images-na.ssl-images-amazon.com/images/I/91euzd0lY4L.jpg' }
+      image: 'https://images-na.ssl-images-amazon.com/images/I/91euzd0lY4L.jpg' },
 ])
 
 50.times do |n|
@@ -58,6 +58,24 @@ end
 UserBook.create!([
     { id: 1, user_id: 1, book_id: 2, rental_date: '2016-09-01 10:00:00',
       due_date: '2016-09-08 23:59:59', return_date: '2016-09-07 17:00:00'},
-    { id: 2, user_id: 2, book_id: 2, rental_date: '2016-09-07 18:00:00',
-      due_date: '2016-09-14 23:59:59', return_date: nil}
+    { id: 2, user_id: 2, book_id: 10, rental_date: '2016-09-07 13:00:00',
+      due_date: '2016-09-14 23:59:59', return_date: '2016-09-09 19:00:00'},
+    { id: 3, user_id: 2, book_id: 9, rental_date: '2016-09-07 15:00:00',
+      due_date: '2016-09-14 23:59:59', return_date: '2016-09-09 19:00:00'},
+    { id: 4, user_id: 2, book_id: 8, rental_date: '2016-09-07 16:00:00',
+      due_date: '2016-09-14 23:59:59', return_date: '2016-09-09 19:00:00'},
+    { id: 5, user_id: 2, book_id: 7, rental_date: '2016-09-07 17:00:00',
+      due_date: '2016-09-14 23:59:59', return_date: '2016-09-09 19:00:00'},
+    { id: 6, user_id: 2, book_id: 6, rental_date: '2016-09-07 18:00:00',
+      due_date: '2016-09-14 23:59:59', return_date: '2016-09-09 19:00:00'},
+    { id: 7, user_id: 2, book_id: 5, rental_date: '2016-09-07 19:00:00',
+      due_date: '2016-09-14 23:59:59', return_date: '2016-09-09 19:00:00'},
+    { id: 8, user_id: 2, book_id: 4, rental_date: '2016-09-07 20:00:00',
+      due_date: '2016-09-14 23:59:59', return_date: '2016-09-09 19:00:00'},
+    { id: 9, user_id: 2, book_id: 3, rental_date: '2016-09-07 21:00:00',
+      due_date: '2016-09-14 23:59:59', return_date: nil},
+    { id: 10, user_id: 2, book_id: 2, rental_date: '2016-09-07 22:00:00',
+      due_date: '2016-09-14 23:59:59', return_date: nil},
+    { id: 11, user_id: 2, book_id: 1, rental_date: '2016-09-07 23:00:00',
+      due_date: '2016-09-14 23:59:59', return_date: nil},
 ])

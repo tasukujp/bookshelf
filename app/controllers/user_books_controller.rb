@@ -15,7 +15,7 @@ class UserBooksController < ApplicationController
     user_book = UserBook.find(params[:id])
     user_book.return
     respond_to do |format|
-      format.html { redirect_to root_path, notice: '本の返却処理が完了しました。' }
+      format.html { redirect_to current_user, notice: '本の返却処理が完了しました。' }
     end
   end
 end
