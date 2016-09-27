@@ -1,6 +1,11 @@
 ja:
   devise:
     passwords:
+      edit:
+        title: パスワードの変更
+        password: 新しいパスワード
+        password_confirmation: パスワードの確認
+        submit: 変更
       new:
         title: パスワードの再発行
         email: メールアドレス
