@@ -1,5 +1,10 @@
 ja:
   devise:
+    passwords:
+      new:
+        title: パスワードの再発行
+        email: メールアドレス
+        submit: 再発行メールの送信
     registrations:
       edit:
         title: ユーザー情報

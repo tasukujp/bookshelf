@@ -6,9 +6,9 @@
     %div.book-info
       - if defined?(user_book)
         - if book.rental?(user)
-          %span.label.label-info 貸出中
+          %span.label.label-info= t('.on_loan')
         - else
-          %span.label.label-success 返却済
+          %span.label.label-success= t('.return')
       %h5.book-title
         = link_to book.title, book
       %div.book-author

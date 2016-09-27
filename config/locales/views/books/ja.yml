@@ -28,4 +28,6 @@ ja:
       cancel: いいえ
       users_count_html: '<span class="book-users-count">%{count}</span> 人が読みました。'
     book:
+      on_loan: 貸出中
+      return: 返却済
       rental_date: '貸出日 : %{date}'
