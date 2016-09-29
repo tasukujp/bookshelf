@@ -5,5 +5,6 @@
       = devise_error_messages!
       .form-group
         = f.email_field :email, placeholder: t('.email'), autofocus: true, class: 'form-control'
-      .actions
+      .form-group.actions
         = f.submit t('.submit'), class: 'btn btn-primary'
+    = render 'devise/shared/links'

@@ -14,8 +14,9 @@ class Book < ActiveRecord::Base
   # @param [User] ユーザーオブジェクト
   # @return [Boolean]
   def rental?(user = nil)
-    user_books.find { |v|
+    result = user_books.find do |v|
       (user.nil? || v.user_id == user.id) && v.return_date.nil?
-    } ? true : false
+    end
+    result ? true : false
   end
 end
