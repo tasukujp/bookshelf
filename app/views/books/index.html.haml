@@ -1,5 +1,12 @@
 %div.row#books-list
   %div.col-md-6
+    %h2 検索
+    = form_for @book_search, as: 'search', url: books_url, html: { class: 'form-horizontal', method: :get } do |f|
+      .form-group
+        = f.label :title, class: 'col-md-3 control-label'
+        .col-md-9
+          = f.text_field :title, autocomplete: 'off', class: 'form-control'
+      = f.submit '検索', class: 'btn btn-default serch-btn btn-sm'
     %h2=t('.title')
     = render partial: 'book', collection: @books, spacer_template: 'shared/separator'
     = will_paginate @books, previous_label: 'Previous', next_label: 'Next'
