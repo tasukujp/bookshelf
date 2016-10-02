@@ -3,6 +3,8 @@ class Book < ActiveRecord::Base
   has_many :user_books, dependent: :delete_all
   has_many :users, through: :user_books
 
+  default_scope { order(created_at: :desc) }
+
   validates :isbn, presence: true, uniqueness: true, isbn_format: true
   validates :title, presence: true, length: { maximum: 64 }
   validates :author, length: { maximum: 32 }

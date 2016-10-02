@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @book_search = BookSearch.new(params[:search])
+    @book_search = BookSearch.new(params[:book_search])
     @books = @book_search.search.paginate(page: params[:page], per_page: 10)
   end
 
