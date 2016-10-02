@@ -1,34 +1,34 @@
 = form_for(book, html: { class: 'form-horizontal' }) do |f|
   = error_messages_for book
   %div.form-group
-    = f.label :isbn, class: 'col-md-3 control-label'
-    %div.col-md-9
+    = f.label :isbn, class: 'col-xs-3 control-label'
+    %div.col-xs-9
       = f.text_field :isbn, autocomplete: 'off', autofocus: true, class: 'form-control'
   %div.form-group
-    = f.label :title, class: 'col-md-3 control-label'
-    %div.col-md-9
+    = f.label :title, class: 'col-xs-3 control-label'
+    %div.col-xs-9
       = f.text_field :title, autocomplete: 'off', class: 'form-control'
   %div.form-group
-    = f.label :author, class: 'col-md-3 control-label'
-    %div.col-md-9
+    = f.label :author, class: 'col-xs-3 control-label'
+    %div.col-xs-9
       = f.text_field :author, autocomplete: 'off', class: 'form-control'
   %div.form-group
-    = f.label :publisher, class: 'col-md-3 control-label'
-    %div.col-md-9
+    = f.label :publisher, class: 'col-xs-3 control-label'
+    %div.col-xs-9
       = f.text_field :publisher, autocomplete: 'off', class: 'form-control'
   %div.form-group
-    = f.label :published, class: 'col-md-3 control-label'
-    %div.col-md-9
+    = f.label :published, class: 'col-xs-3 control-label'
+    %div.col-xs-9
       = f.text_field :published, autocomplete: 'off', class: 'form-control'
   %div.form-group
-    = f.label :url, class: 'col-md-3 control-label'
-    %div.col-md-9
+    = f.label :url, class: 'col-xs-3 control-label'
+    %div.col-xs-9
       = f.text_field :url, autocomplete: 'off', class: 'form-control'
   %div.form-group
-    = f.label :image, class: 'col-md-3 control-label'
-    %div.col-md-9
+    = f.label :image, class: 'col-xs-3 control-label'
+    %div.col-xs-9
       = f.text_field :image, autocomplete: 'off', class: 'form-control'
   %div.form-group
-    .actions.col-md-9.col-md-offset-3
+    .actions.col-xs-9.col-xs-offset-3
       = f.submit class: 'btn btn-primary'
       = link_to t('.back'), :back, class: 'btn btn-default'

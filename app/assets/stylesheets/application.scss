@@ -21,6 +21,9 @@ $gray: #eaeaea;
 $red: #da4740;
 $blue: #4682b4;
 
+.container {
+  width: 970px;
+}
 body {
   padding: 60px 0 0 0;
 }
@@ -174,6 +177,7 @@ h2 {
 #search-panel {
   label {
     text-align: left !important;
+    padding-right: 0;
   }
   .btn {
     width: 100%;

@@ -1,31 +1,32 @@
 = render layout: 'shared/search_panel' do
   = form_for book_search, url: url, html: { method: :get, class: 'form-horizontal' } do |f|
     .rwo
-      .col-md-6
+      .col-xs-6
         .form-group.row
-          = f.label :isbn, Book.human_attribute_name(:isbn), class: 'col-md-2 control-label'
-          .col-md-10
+          = f.label :isbn, Book.human_attribute_name(:isbn), class: 'col-xs-2 control-label'
+          .col-xs-10
             = f.text_field :isbn, class: 'form-control'
         .form-group.row
-          = f.label :title, Book.human_attribute_name(:title), class: 'col-md-2 control-label'
-          .col-md-10
+          = f.label :title, Book.human_attribute_name(:title), class: 'col-xs-2 control-label'
+          .col-xs-10
             = f.text_field :title, class: 'form-control'
         .form-group.row
-          = f.label :author, Book.human_attribute_name(:author), class: 'col-md-2 control-label'
-          .col-md-10
+          = f.label :author, Book.human_attribute_name(:author), class: 'col-xs-2 control-label'
+          .col-xs-10
             = f.text_field :author, class: 'form-control'
-      .col-md-6
+      .col-xs-6
         .form-group.row
-          = f.label :publisher, Book.human_attribute_name(:publisher), class: 'col-md-2 control-label'
-          .col-md-10
+          = f.label :publisher, Book.human_attribute_name(:publisher), class: 'col-xs-2 control-label'
+          .col-xs-10
             = f.text_field :publisher, class: 'form-control'
         .form-group.row
-          = f.label :published, Book.human_attribute_name(:published), class: 'col-md-2 control-label'
-          .col-md-10
+          = f.label :published, Book.human_attribute_name(:published), class: 'col-xs-2 control-label'
+          .col-xs-10
             = f.text_field :published, class: 'form-control'
-    .row.col-md-12
-      .row
-        .col-md-2.col-md-offset-4.text-center
-          = f.submit t('.submit'), class: 'btn btn-primary'
-        .col-md-2.text-center
-          = link_to t('.clear'), books_url, class: 'btn btn-default'
+    .row
+      .col-xs-12
+        .row
+          .col-xs-2.col-xs-offset-4.text-center
+            = f.submit t('.submit'), class: 'btn btn-primary'
+          .col-xs-2.text-center
+            = link_to t('.clear'), books_url, class: 'btn btn-default'

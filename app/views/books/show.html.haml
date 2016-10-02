@@ -1,6 +1,6 @@
 #books-show
   %div.row
-    %div.col-md-6.col-md-offset-3
+    %div.col-xs-8.col-xs-offset-2
       %div.book-image
         - if @book.url.present?
           = link_to @book.url, target: '_blank' do
@@ -14,19 +14,19 @@
           - else
             = @book.title
         %div.row
-          %div.col-md-12
+          %div.col-xs-12
             %span.book-author 著者 :
             = @book.author
         %div.row
-          %div.col-md-12
+          %div.col-xs-12
             %span.book-publisher 出版社 :
             = @book.publisher
         %div.row
-          %div.col-md-12
+          %div.col-xs-12
             %span.book-published 発売日 :
             = @book.published
         %div.row
-          %div.col-md-12
+          %div.col-xs-12
             %span.book-isbn ISBN :
             = @book.isbn
         .actions
@@ -34,7 +34,7 @@
             = fa_icon :user
             = t('.users_count_html', count: @book.users_count)
           %div.row
-            %div.col-md-6
+            %div.col-xs-6
               - if @book.rental?
                 = button_tag t('.submit_disable'), class: 'btn', disabled: true
               - else
@@ -44,7 +44,7 @@
                       data: { confirm: t('.book_rental_confirm', title: @book.title),
                               commit: t('.commit'), cancel: t('.cancel') }
             -# TODO:admin権限
-            %div.col-md-6.text-right
+            %div.col-xs-6.text-right
               = link_to t('.edit'), edit_book_path(@book), class: 'btn btn-default'
               = link_to t('.destroy'), @book, method: 'delete', class: 'btn btn-danger',
                   title: t('.destroy_title'),

@@ -1,5 +1,5 @@
 %div.row#books-list
-  %div.col-md-12
+  %div.col-xs-12
     %h2=t('.title')
     = render 'search', book_search: @book_search, url: books_url
     = render partial: 'book', collection: @books, spacer_template: 'shared/separator'

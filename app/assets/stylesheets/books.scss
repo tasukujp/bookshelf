@@ -1,6 +1,13 @@
 #books-list,
 #users-show {
   .book-info {
+    width: 300px;
+    .book-title,
+    .book-author {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     div {
       line-height: 1.5;
     }
@@ -14,7 +21,7 @@
 #books-show {
   margin-top: 30px;
   .book-info {
-    width: 330px;
+    width: 350px;
     .row {
       line-height: 1.8;
     }
