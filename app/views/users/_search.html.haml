@@ -1,0 +1,20 @@
+= render layout: 'shared/search_panel' do
+  = form_for users_search, url: url, html: { method: :get, class: 'form-horizontal' } do |f|
+    .row
+      .col-xs-6
+        .form-group
+          = f.label :name, User.human_attribute_name(:name), class: 'col-xs-3 control-label'
+          .col-xs-9
+            = f.text_field :name, class: 'form-control'
+      .col-xs-6
+        .form-group
+          = f.label :email, User.human_attribute_name(:email), class: 'col-xs-3 control-label'
+          .col-xs-9
+            = f.text_field :email, class: 'form-control'
+    .row
+      .col-xs-12
+        .row
+          .col-xs-2.col-xs-offset-4.text-center
+            = f.submit t('.submit'), class: 'btn btn-primary'
+          .col-xs-2.text-center
+            = link_to t('.clear'), users_url, class: 'btn btn-default'

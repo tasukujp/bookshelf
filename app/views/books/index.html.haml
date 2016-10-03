@@ -1,6 +1,7 @@
 %div.row#books-list
   %div.col-xs-12
     %h2=t('.title')
-    = render 'search', book_search: @book_search, url: books_url
-    = render partial: 'book', collection: @books, spacer_template: 'shared/separator'
-    = will_paginate @books, previous_label: 'Previous', next_label: 'Next'
+    = render 'search', books_search: @books_search, url: books_url
+    - if @books.exists?
+      = render partial: 'book', collection: @books, spacer_template: 'shared/separator'
+      = will_paginate @books, previous_label: 'Previous', next_label: 'Next'

@@ -1,6 +1,6 @@
 = render layout: 'shared/search_panel' do
-  = form_for book_search, url: url, html: { method: :get, class: 'form-horizontal' } do |f|
-    .rwo
+  = form_for books_search, url: url, html: { method: :get, class: 'form-horizontal' } do |f|
+    .row
       .col-xs-6
         .form-group.row
           = f.label :isbn, Book.human_attribute_name(:isbn), class: 'col-xs-2 control-label'

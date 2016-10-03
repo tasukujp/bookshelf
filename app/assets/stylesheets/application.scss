@@ -41,6 +41,17 @@ i.fa {
   width: 20px;
   text-align: center;
 }
+.btn {
+  transition: 0.8s;
+}
+.btn-primary {
+  background-color: #222;
+  border-color: #090909;
+  &:hover {
+    background-color: darkslategray;
+    border-color: darkslategray;
+  }
+}
 
 /* header */
 header {
