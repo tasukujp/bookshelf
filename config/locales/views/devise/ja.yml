@@ -32,6 +32,7 @@ ja:
         delete_title: アカウント削除確認
         delete_cancel: キャンセル
         delete_commit: 削除
+        remove_user_image: 画像の削除
       new:
         title: アカウント登録
         name: ユーザー名

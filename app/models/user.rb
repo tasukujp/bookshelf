@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { allow_blank: true },
                    length: { minimum: 4, maximum: 16, allow_blank: true }
 
+  mount_uploader :user_image, UserImageUploader
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if (login = conditions.delete(:login))

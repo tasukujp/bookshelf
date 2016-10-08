@@ -6,7 +6,7 @@
       %table.table.table-bordered
         %tr
           %th= User.human_attribute_name :id
-          %th.col-md-1= 'アイコン'
+          %th.col-md-1= t('.user_image')
           %th.col-md-2= User.human_attribute_name :name
           %th.col-md-3= User.human_attribute_name :email
           %th.col-md-2= User.human_attribute_name :last_sign_in_at
@@ -16,7 +16,7 @@
         - @users.each do |user|
           %tr
             %td.text-center= user.id
-            %td.text-center= image_tag user_image_or_default(nil), width: 50, height: 50
+            %td.text-center.user-image= image_tag user_image_or_default(user.user_image), width: 50, height: 50
             %td= user.name
             %td= user.email
             %td.text-center= l(user.last_sign_in_at, format: :date) if user.last_sign_in_at.present?

@@ -44,3 +44,26 @@
     }
   }
 }
+
+#user-edit {
+  .user-image {
+    label {
+      padding-top: 40px;
+    }
+    img {
+      margin: 0 10px 0 0;
+    }
+    input[type=file] {
+      display: inline-block;
+    }
+    input[type=checkbox] {
+      margin: 10px 0 0 0;
+    }
+  }
+}
+
+.user-image img {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+}

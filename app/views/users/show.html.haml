@@ -2,7 +2,7 @@
   %div.col-md-6
     %h2= t('.profile')
     %div.user-image
-      = image_tag user_image_or_default(nil), width: 200, height: 200
+      = image_tag user_image_or_default(@user.user_image), width: 200, height: 200
     %div.user-info
       %div.row
         %div.col-md-12

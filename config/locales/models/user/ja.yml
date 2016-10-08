@@ -9,6 +9,7 @@ ja:
         email: メールアドレス
         last_sign_in_at: 最終ログイン日時
         books_count: カウント(本)
+        user_image: プロフィール画像
         created_at: アカウント作成日
         updated_at: アカウント更新日
         password: パスワード
