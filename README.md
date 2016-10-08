@@ -1,7 +1,13 @@
 # Bookshelf
-Ruby on Rails の練習用に作成したWebアプリ
+Ruby on Rails の練習用に作成した本の管理Webアプリ
 
-## Environment
+## Requirements
+* ImageMagick
+```
+$ brew install imagemagick
+```
+
+## Environments
 * Ruby 2.3.1
 * Rails 4.2.7
 * MySQL 5.7
