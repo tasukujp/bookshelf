@@ -3,6 +3,9 @@ class Book < ActiveRecord::Base
   has_many :user_books, dependent: :delete_all
   has_many :users, through: :user_books
 
+  has_many :reviews, dependent: :delete_all
+  has_many :review_users, through: :reviews, source: :user
+
   default_scope { order(created_at: :desc) }
 
   validates :isbn, presence: true, uniqueness: true, isbn_format: true

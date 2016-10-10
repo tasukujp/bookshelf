@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Book, type: :model do
   it { should have_many(:user_books) }
   it { should have_many(:users).through(:user_books) }
+  it { should have_many(:reviews) }
+  it { should have_many(:review_users).through(:reviews) }
 
   subject { Book.new(isbn: '978-4797386295', title: 'テスト用タイトル') }
 

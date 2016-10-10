@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_many :user_books, dependent: :delete_all
   has_many :books, through: :user_books
 
+  has_many :reviews, dependent: :delete_all
+  has_many :review_books, through: :reviews, source: :book
+
   attr_accessor :login
 
   validates :name, presence: true, uniqueness: { allow_blank: true },

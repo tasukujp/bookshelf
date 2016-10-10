@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# 本の貸出記録の保持テーブル
 class UserBook < ActiveRecord::Base
   belongs_to :user, counter_cache: :books_count
   belongs_to :book, counter_cache: :users_count

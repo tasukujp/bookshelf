@@ -11,22 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008141738) do
+ActiveRecord::Schema.define(version: 20161010134926) do
 
   create_table "books", force: :cascade do |t|
-    t.string   "isbn",        limit: 255,             null: false
-    t.string   "title",       limit: 255,             null: false
-    t.string   "author",      limit: 255
-    t.string   "publisher",   limit: 255
-    t.string   "published",   limit: 255
-    t.string   "url",         limit: 255
-    t.string   "image",       limit: 255
-    t.integer  "users_count", limit: 4,   default: 0, null: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "isbn",          limit: 255,             null: false
+    t.string   "title",         limit: 255,             null: false
+    t.string   "author",        limit: 255
+    t.string   "publisher",     limit: 255
+    t.string   "published",     limit: 255
+    t.string   "url",           limit: 255
+    t.string   "image",         limit: 255
+    t.integer  "users_count",   limit: 4,   default: 0, null: false
+    t.integer  "reviews_count", limit: 4,   default: 0, null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   add_index "books", ["isbn"], name: "index_books_on_isbn", unique: true, using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4,     null: false
+    t.integer  "book_id",    limit: 4,     null: false
+    t.text     "comment",    limit: 65535, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "reviews", ["book_id"], name: "index_reviews_on_book_id", using: :btree
+  add_index "reviews", ["user_id", "book_id"], name: "index_reviews_on_user_id_and_book_id", unique: true, using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "user_books", force: :cascade do |t|
     t.integer  "user_id",     limit: 4, null: false
@@ -39,6 +52,7 @@ ActiveRecord::Schema.define(version: 20161008141738) do
   end
 
   add_index "user_books", ["book_id"], name: "index_user_books_on_book_id", using: :btree
+  add_index "user_books", ["user_id", "book_id"], name: "index_user_books_on_user_id_and_book_id", unique: true, using: :btree
   add_index "user_books", ["user_id"], name: "index_user_books_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -61,6 +75,7 @@ ActiveRecord::Schema.define(version: 20161008141738) do
     t.string   "unlock_token",           limit: 255
     t.datetime "locked_at"
     t.integer  "books_count",            limit: 4,   default: 0,  null: false
+    t.integer  "reviews_count",          limit: 4,   default: 0,  null: false
     t.string   "user_image",             limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
@@ -72,6 +87,8 @@ ActiveRecord::Schema.define(version: 20161008141738) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
+  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "users"
   add_foreign_key "user_books", "books"
   add_foreign_key "user_books", "users"
 end
