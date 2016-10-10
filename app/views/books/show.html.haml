@@ -50,3 +50,20 @@
                   title: t('.destroy_title'),
                   data: { confirm: t('.book_destroy_confirm', title: @book.title),
                           commit: t('.commit'), cancel: t('.cancel') }
+    .col-xs-8.col-xs-offset-2.review-form
+      = form_for(@book.reviews.build, html: { class: 'form-horizontal' }) do |f|
+        = hidden_field_tag :book_id, @book.id
+        .input-group
+          = f.text_field :comment, placeholder: t('.review'), autocomplete: 'off', class: 'form-control'
+          %span.input-group-btn= f.submit t('.submit_review'), class: 'btn btn-primary'
+    .row.col-xs-8.col-xs-offset-2.review-list
+      %table.table
+        %thead.thead-inverse
+          %tr
+            %th.col-xs-12 コメント
+        %tbody
+          - @reviews.each do |review|
+            %tr
+              %td
+                = review.comment
+

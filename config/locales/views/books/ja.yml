@@ -20,6 +20,8 @@ ja:
       edit: 編集
       destroy: 削除
       submit: 借りる
+      review: コメント
+      submit_review: 登録
       submit_disable: 貸出中
       rental_title: 貸出確認
       book_rental_confirm: '%{title} の貸出処理をしてもよろしいですか？'

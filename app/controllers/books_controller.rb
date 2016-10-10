@@ -22,6 +22,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @reviews = Review.get_reviews(@book)
   end
 
   def edit
