@@ -1,3 +1,4 @@
+Review.delete_all
 UserBook.delete_all
 User.delete_all
 Book.delete_all
@@ -92,3 +93,14 @@ UserBook.create!([
     { id: 11, user_id: 1, book_id: 1, rental_date: '2016-09-07 23:00:00',
       due_date: '2016-09-14 23:59:59', return_date: nil},
 ])
+
+50.times do |n|
+  id = n + 1
+  no = format('%02d', id)
+  user_id = id
+  book_id = 1
+  comment = "テストコメント#{no}"
+  Review.create!(
+      id: id, user_id: user_id, book_id: book_id, comment: comment
+  )
+end
