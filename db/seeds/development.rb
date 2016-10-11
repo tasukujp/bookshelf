@@ -65,7 +65,8 @@ Book.create!([
   publisher = "テスト出版社-#{no}"
   Book.create!(
       id: id, isbn: isbn, title: title, author: author,
-      publisher: publisher, published: Time.current.to_date.to_s
+      publisher: publisher, published: Time.current.to_date.to_s,
+      updated_at: 1.hours.ago, created_at: 1.hours.ago
   )
 end
 
