@@ -22,7 +22,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @reviews = Review.get_reviews(@book)
+    @reviews = Review.get_reviews(@book).paginate(page: params[:page], per_page: 10)
   end
 
   def edit

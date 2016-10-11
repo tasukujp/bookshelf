@@ -1,0 +1,10 @@
+%li
+  .user-image
+    = link_to user do
+      = image_tag user_image_or_default(user.user_image), width: 50, height: 50
+  %span.user-name= link_to user.name, user
+  %span.comment= review.comment
+  %span.timestamp
+    = review.updated_at
+    - if current_user?(user)
+      = link_to 'delete', review, method: :delete, data: { confirm: "You sure?" }

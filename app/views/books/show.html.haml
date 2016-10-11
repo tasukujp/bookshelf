@@ -56,14 +56,10 @@
         .input-group
           = f.text_field :comment, placeholder: t('.review'), autocomplete: 'off', class: 'form-control'
           %span.input-group-btn= f.submit t('.submit_review'), class: 'btn btn-primary'
-    .row.col-xs-8.col-xs-offset-2.review-list
-      %table.table
-        %thead.thead-inverse
-          %tr
-            %th.col-xs-12 コメント
-        %tbody
-          - @reviews.each do |review|
-            %tr
-              %td
-                = review.comment
-
+    .row.col-xs-8.col-xs-offset-2
+      %ul.reviews
+        - @reviews.each do |review|
+          = render 'reviews/review', review: review, user: review.user
+          - if @reviews.last != review
+            %hr
+        = will_paginate @reviews, previous_label: 'Previous', next_label: 'Next'

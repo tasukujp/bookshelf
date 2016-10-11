@@ -15,7 +15,7 @@ class UserBook < ActiveRecord::Base
   # @param [User] ユーザーオブジェクト
   # @return [Array] UserBookとBookの配列
   def self.get_rental_history(user)
-    UserBook.where(user_id: user.id).joins(:book).select('user_books.*, books.*')
+    UserBook.where(user_id: user.id)
   end
 
   # 貸出中の本を取得
