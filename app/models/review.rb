@@ -3,7 +3,7 @@ class Review < ActiveRecord::Base
   belongs_to :user, counter_cache: :reviews_count
   belongs_to :book, counter_cache: :reviews_count
 
-  validates :user_id, presence: true
+  validates :user_id, presence: true, uniqueness: { scope: :book_id }
   validates :book_id, presence: true
   validates :comment, presence: true
 

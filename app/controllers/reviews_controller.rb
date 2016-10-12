@@ -7,12 +7,13 @@ class ReviewsController < ApplicationController
 
   def create
     @book = Book.find(params[:book_id])
+    @review = @book.reviews.build
     respond_to do |format|
-      if @book.reviews.build.register(current_user, review_params[:comment])
+      if @review.register(current_user, review_params[:comment])
         format.html { redirect_to @book, notice: 'Review was successfully created.' }
         #format.json { render :show, status: :created, location: @review }
       else
-        format.html { render :new }
+        format.html { render 'books/show' }
         #format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
@@ -24,16 +25,17 @@ class ReviewsController < ApplicationController
         format.html { redirect_to @review, notice: 'Review was successfully updated.' }
         #format.json { render :show, status: :ok, location: @review }
       else
-        format.html { render :edit }
+        format.html { render 'books/show' }
         #format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
+    @book = Book.find(params[:book_id])
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to @book, notice: 'Review was successfully destroyed.' }
       #format.json { head :no_content }
     end
   end
