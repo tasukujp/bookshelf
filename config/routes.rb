@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show], constraints: { id: /\d+/ }
   resources :books, constraints: { id: /\d+/ }
   resources :user_books, only: [:create, :update]
-  resources :reviews, only: [:create, :edit, :update, :destroy]
+  resources :reviews, only: [:new, :create, :edit, :update, :destroy]
 
   root to: 'books#index'
 

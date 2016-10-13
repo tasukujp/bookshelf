@@ -1,0 +1,6 @@
+= form_for(review, html: { class: 'form-horizontal' }, remote: true) do |f|
+  = hidden_field_tag :book_id, review.book_id
+  .input-group
+    = f.text_field :comment, placeholder: t('.review'), autocomplete: 'off', class: 'form-control'
+  .actions
+    = f.submit t('.submit_review'), class: 'btn btn-primary'

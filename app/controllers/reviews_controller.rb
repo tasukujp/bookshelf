@@ -2,6 +2,10 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy]
 
+  def new
+    @review = Book.find(params[:book_id]).reviews.build
+  end
+
   def edit
   end
 
