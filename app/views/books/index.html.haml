@@ -1,5 +1,5 @@
-%div.row#books-list
-  %div.col-xs-12
+.row#books-list
+  .col-xs-12
     %h2=t('.title')
     = render 'search', books_search: @books_search, url: books_url
     - if @books.exists?

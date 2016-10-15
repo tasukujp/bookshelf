@@ -1,9 +1,9 @@
-%div.row.book-item
-  %div.col-xs-12
-    %div.book-image
+.row.book-item
+  .col-xs-12
+    .book-image
       = link_to book do
         = image_tag book_image_or_default(book.image), width: 100, height: 130
-    %div.book-info
+    .book-info
       - if defined?(user_book)
         - if book.rental?(user)
           %span.label.label-info= t('.on_loan')
@@ -11,12 +11,12 @@
           %span.label.label-success= t('.return')
       %h5.book-title
         = link_to book.title, book
-      %div.book-author
+      .book-author
         = book.author
-      %div.book-publisher
+      .book-publisher
         = book.publisher
-      %div.book-published
+      .book-published
         = book.published
       - if defined?(user_book)
-        %div.book-rental-date
+        .book-rental-date
           = t('.rental_date', date: l(user_book.rental_date, format: :date))

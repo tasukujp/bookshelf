@@ -1,40 +1,40 @@
 #books-show
-  %div.row
-    %div.col-xs-8.col-xs-offset-2
-      %div.book-image
+  .row
+    .col-xs-8.col-xs-offset-2
+      .book-image
         - if @book.url.present?
           = link_to @book.url, target: '_blank' do
             = image_tag book_image_or_default(@book.image), width: 200, height: 260
         - else
           = image_tag book_image_or_default(@book.image), width: 200, height: 260
-      %div.book-info
+      .book-info
         %h3.book-title
           - if @book.url.present?
             = link_to @book.title, @book.url, target: '_blank'
           - else
             = @book.title
-        %div.row
-          %div.col-xs-12
+        .row
+          .col-xs-12
             %span.book-author 著者 :
             = @book.author
-        %div.row
-          %div.col-xs-12
+        .row
+          .col-xs-12
             %span.book-publisher 出版社 :
             = @book.publisher
-        %div.row
-          %div.col-xs-12
+        .row
+          .col-xs-12
             %span.book-published 発売日 :
             = @book.published
-        %div.row
-          %div.col-xs-12
+        .row
+          .col-xs-12
             %span.book-isbn ISBN :
             = @book.isbn
         .actions
-          %div.book-user
+          .book-user
             = fa_icon :user
             = t('.users_count_html', count: @book.users_count)
-          %div.row
-            %div.col-xs-6
+          .row
+            .col-xs-6
               - if @book.rental?
                 = button_tag t('.submit_disable'), class: 'btn', disabled: true
               - else
@@ -45,7 +45,7 @@
                               commit: t('.commit'), cancel: t('.cancel') }
               = link_to t('.review'), '#review-modal', 'data-toggle': :modal, class: 'btn btn-info'
             -# TODO:admin権限
-            %div.col-xs-6.text-right
+            .col-xs-6.text-right
               = link_to t('.edit'), edit_book_path(@book), class: 'btn btn-default'
               = link_to t('.destroy'), @book, method: 'delete', class: 'btn btn-danger',
                   title: t('.destroy_title'),

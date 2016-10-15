@@ -1,9 +1,9 @@
-%div#user-edit.row
-  %div.col-md-8.col-md-offset-2
+#user-edit.row
+  .col-md-8.col-md-offset-2
     %h2= t('.title')
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f|
       = devise_error_messages!
-      %div.form-group.user-image
+      .form-group.user-image
         = f.label :user_image, class: 'col-md-3 control-label'
         .col-md-9
           = image_tag user_image_or_default(resource.user_image), width: 100, height: 100
@@ -13,34 +13,34 @@
           .col-md-9.col-md-offset-3
             = f.check_box :remove_user_image
             = t('.remove_user_image')
-      %div.form-group
+      .form-group
         = f.label :name, class: 'col-md-3 control-label'
-        %div.col-md-9
+        .col-md-9
           = f.text_field :name, autofocus: true, class: 'form-control'
-      %div.form-group
+      .form-group
         = f.label :email, class: 'col-md-3 control-label'
-        %div.col-md-9
+        .col-md-9
           = f.email_field :email, class: 'form-control'
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
         %div
           Currently waiting confirmation for: #{resource.unconfirmed_email}
-      %div.form-group
+      .form-group
         = f.label :password, t('.password'), class: 'col-md-3 control-label'
-        %div.col-md-9
+        .col-md-9
           = f.password_field :password, autocomplete: 'off', class: 'form-control'
-      %div.form-group
+      .form-group
         = f.label :password_confirmation, t('.password_confirmation'), class: 'col-md-3 control-label'
-        %div.col-md-9
+        .col-md-9
           = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
-      %div.form-group
+      .form-group
         = f.label :current_password, class: 'col-md-3 control-label'
-        %div.col-md-9
+        .col-md-9
           = f.password_field :current_password, autocomplete: 'off', class: 'form-control'
-      %div.form-group
+      .form-group
         .actions.col-md-9.col-md-offset-3
           = f.submit class: 'btn btn-primary'
           = link_to t('.back'), :back, class: 'btn btn-default'
-      %div.form-group
+      .form-group
         .col-md-9.col-md-offset-3#delete-account
           %span.glyphicon.glyphicon-exclamation-sign
           = link_to t('.account_deactivate_link'), registration_path(resource_name), method: 'delete',
