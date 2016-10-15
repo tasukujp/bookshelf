@@ -1,5 +1,4 @@
 #books-show
-  = error_messages_for @review
   %div.row
     %div.col-xs-8.col-xs-offset-2
       %div.book-image
@@ -39,11 +38,12 @@
               - if @book.rental?
                 = button_tag t('.submit_disable'), class: 'btn', disabled: true
               - else
-                = form_for(@book.user_books.build) do |f|
+                = form_for(@book.user_books.build, html: { style: 'display: inline;' }) do |f|
                   = hidden_field_tag :book_id, @book.id
                   = f.submit t('.submit'), class: 'btn btn-primary', title: t('.rental_title'),
                       data: { confirm: t('.book_rental_confirm', title: @book.title),
                               commit: t('.commit'), cancel: t('.cancel') }
+              = link_to t('.review'), '#review-modal', 'data-toggle': :modal, class: 'btn btn-info'
             -# TODO:admin権限
             %div.col-xs-6.text-right
               = link_to t('.edit'), edit_book_path(@book), class: 'btn btn-default'
@@ -51,12 +51,6 @@
                   title: t('.destroy_title'),
                   data: { confirm: t('.book_destroy_confirm', title: @book.title),
                           commit: t('.commit'), cancel: t('.cancel') }
-    .col-xs-8.col-xs-offset-2.review-form
-      = form_for(@book.reviews.build, html: { class: 'form-horizontal' }) do |f|
-        = hidden_field_tag :book_id, @book.id
-        .input-group
-          = f.text_field :comment, placeholder: t('.review'), autocomplete: 'off', class: 'form-control'
-          %span.input-group-btn= f.submit t('.submit_review'), class: 'btn btn-primary'
     .row.col-xs-8.col-xs-offset-2
       %ul.reviews
         - @reviews.each do |review|
@@ -64,3 +58,12 @@
           - if @reviews.last != review
             %hr
         = will_paginate @reviews, previous_label: 'Previous', next_label: 'Next'
+    #review-modal.modal.fade{tabindex: '-1', role: 'dialog', 'aria-labelledby': 'myModalLabel', 'aria-hidden': 'true'}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            = button_tag raw('&times;'), type: :button, class: :close, 'data-dismiss': :modal, 'aria-hidden': :true
+            %h4#myModalLabel.modal-title
+              コメントを書く
+          .modal-body
+            = render 'reviews/form', modal: true, review: @review

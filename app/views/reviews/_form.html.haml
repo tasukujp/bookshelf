@@ -1,6 +1,7 @@
-= form_for(review, html: { class: 'form-horizontal' }, remote: true) do |f|
+= form_for(review, remote: true, html: {role: :form, 'data-model': :review}) do |f|
+  = error_messages_for review
   = hidden_field_tag :book_id, review.book_id
-  .input-group
-    = f.text_field :comment, placeholder: t('.review'), autocomplete: 'off', class: 'form-control'
+  .form-group
+    = f.text_area :comment, class: 'form-control', rows: 5
   .actions
-    = f.submit t('.submit_review'), class: 'btn btn-primary'
+    = f.submit t('.submit'), class: 'btn btn-primary'

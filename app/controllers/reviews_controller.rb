@@ -24,9 +24,10 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    @book = Book.find(@review.book_id)
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html { redirect_to @book, notice: 'Review was successfully updated.' }
         #format.json { render :show, status: :ok, location: @review }
       else
         format.html { render 'books/show' }
@@ -36,7 +37,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:book_id])
+    @book = Book.find(@review.book_id)
     @review.destroy
     respond_to do |format|
       format.html { redirect_to @book, notice: 'Review was successfully destroyed.' }
