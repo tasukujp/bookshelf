@@ -2,22 +2,18 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy]
 
-  def new
-    @review = Book.find(params[:book_id]).reviews.build
-  end
-
-  def edit
-  end
-
   def create
     @book = Book.find(params[:book_id])
     @review = @book.reviews.build
     respond_to do |format|
       if @review.register(current_user, review_params[:comment])
-        format.html { redirect_to @book, notice: 'Review was successfully created.' }
+        flash[:notice] = 'コメントを登録しました。'
+        format.html { redirect_to @book }
+        format.js { render js: "window.location = '#{book_url(@book)}'" }
         #format.json { render :show, status: :created, location: @review }
       else
         format.html { render 'books/show' }
+        format.js { render 'review' }
         #format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
@@ -27,10 +23,13 @@ class ReviewsController < ApplicationController
     @book = Book.find(@review.book_id)
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @book, notice: 'Review was successfully updated.' }
+        flash[:notice] = 'コメントを更新しました。'
+        format.html { redirect_to @book }
+        format.js { render js: "window.location = '#{book_url(@book)}'" }
         #format.json { render :show, status: :ok, location: @review }
       else
         format.html { render 'books/show' }
+        format.js { render 'review' }
         #format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
