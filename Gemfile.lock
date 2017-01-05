@@ -69,6 +69,7 @@ GEM
     concurrent-ruby (1.0.2)
     data-confirm-modal (1.2.0)
       railties (>= 3.0)
+    database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -265,6 +266,7 @@ DEPENDENCIES
   carrierwave (~> 0.10.0)
   coffee-rails (~> 4.1.0)
   data-confirm-modal
+  database_cleaner (~> 1.5)
   devise
   factory_girl_rails (~> 4.8)
   faker (~> 1.7)
@@ -292,4 +294,4 @@ DEPENDENCIES
   will_paginate (~> 3.1.0)
 
 BUNDLED WITH
-   1.13.1
+   1.13.7
