@@ -79,6 +79,13 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.7.0)
+    factory_girl (4.8.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
+      railties (>= 3.0.0)
+    faker (1.7.2)
+      i18n (~> 0.5)
     font-awesome-rails (4.6.3.1)
       railties (>= 3.2, < 5.1)
     git-version-bump (0.15.1)
@@ -259,6 +266,8 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   data-confirm-modal
   devise
+  factory_girl_rails (~> 4.8)
+  faker (~> 1.7)
   font-awesome-rails
   haml-rails
   hirb

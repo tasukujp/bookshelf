@@ -8,7 +8,7 @@ class Book < ActiveRecord::Base
 
   default_scope { order(created_at: :desc) }
 
-  validates :isbn, presence: true, uniqueness: true, isbn_format: true
+  validates :isbn, presence: true, uniqueness: { case_sensitive: false }, isbn_format: true
   validates :title, presence: true, length: { maximum: 64 }
   validates :author, length: { maximum: 32 }
   validates :publisher, length: { maximum: 16 }

@@ -1,8 +1,8 @@
 class CreateBooks < ActiveRecord::Migration
   def change
     create_table :books do |t|
-      t.string :isbn, null: false
-      t.string :title, null: false
+      t.string :isbn, null: false, default: ''
+      t.string :title, null: false, default: ''
       t.string :author
       t.string :publisher
       t.string :published
