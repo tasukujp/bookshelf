@@ -11,18 +11,13 @@ class UserBook < ActiveRecord::Base
   validates :rental_date, presence: true
   validates :due_date, presence: true
 
-  # 本の貸出履歴を取得
-  # @param [User] ユーザーオブジェクト
-  # @return [Array] UserBookとBookの配列
-  def self.get_rental_history(user)
-    UserBook.where(user_id: user.id)
-  end
-
-  # 貸出中の本を取得
-  # @param [User] ユーザーオブジェクト
-  # @return [Array] Bookオブジェクトの配列
-  def self.get_rental_books(user)
-    user.user_books.where(return_date: nil).map { |t| Book.find(t.book_id) }
+  class << self
+    # 本の貸出履歴を取得
+    # @param [User] ユーザーオブジェクト
+    # @return [Array] UserBookとBookの配列
+    def get_rental_history(user)
+      UserBook.where(user_id: user.id)
+    end
   end
 
   # 本の貸出情報を登録
@@ -32,7 +27,7 @@ class UserBook < ActiveRecord::Base
   def register(user)
     self.user_id = user.id
     self.rental_date = Time.current
-    self.due_date = self.rental_date.since(7.days).end_of_day
+    self.due_date = rental_date.since(7.days).end_of_day
     save
   end
 

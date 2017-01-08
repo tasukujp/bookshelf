@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   # GET /users/:id
   def show
     @user_books = UserBook.get_rental_history(@user).paginate(page: params[:page], per_page: 5)
-    @rental_books = UserBook.get_rental_books(current_user)
   end
 
   private
