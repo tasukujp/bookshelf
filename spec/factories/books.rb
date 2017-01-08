@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :book do
-    isbn '978-4797386295'
+    sequence(:isbn) { |n| "978-479738629#{n}" }
     title { Faker::Book.title }
   end
 end
