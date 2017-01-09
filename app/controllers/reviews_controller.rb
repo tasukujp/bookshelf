@@ -8,13 +8,9 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.register(current_user, review_params[:comment])
         flash[:notice] = 'コメントを登録しました。'
-        format.html { redirect_to @book }
         format.js { render js: "window.location = '#{book_url(@book)}'" }
-        #format.json { render :show, status: :created, location: @review }
       else
-        format.html { render 'books/show' }
         format.js { render 'review' }
-        #format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -24,11 +20,9 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.update(review_params)
         flash[:notice] = 'コメントを更新しました。'
-        format.html { redirect_to @book }
         format.js { render js: "window.location = '#{book_url(@book)}'" }
         #format.json { render :show, status: :ok, location: @review }
       else
-        format.html { render 'books/show' }
         format.js { render 'review' }
         #format.json { render json: @review.errors, status: :unprocessable_entity }
       end
@@ -39,7 +33,8 @@ class ReviewsController < ApplicationController
     @book = Book.find(@review.book_id)
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to @book, notice: 'Review was successfully destroyed.' }
+      flash[:notice] = 'コメントを削除しました。'
+      format.js { render js: "window.location = '#{book_url(@book)}'" }
       #format.json { head :no_content }
     end
   end
