@@ -1,0 +1,6 @@
+ja:
+  books:
+    notice:
+      create: 本を登録しました。
+      update: 登録情報を更新しました。
+      destroy: '%{title} を削除しました。'

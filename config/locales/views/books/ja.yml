@@ -7,15 +7,8 @@ ja:
       back: 戻る
     new:
       title: 本の新規登録
-      message:
-        notice: 本を登録しました。
     edit:
       title: 本の編集
-      message:
-        notice: 登録情報を更新しました。
-    destroy:
-      message:
-        notice: '%{title} を削除しました。'
     show:
       edit: 編集
       destroy: 削除

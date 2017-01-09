@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     @review = @book.reviews.build
     respond_to do |format|
       if @review.register(current_user, review_params[:comment])
-        flash[:notice] = 'コメントを登録しました。'
+        flash[:notice] = t('reviews.notice.create')
         format.js { render js: "window.location = '#{book_url(@book)}'" }
       else
         format.js { render 'review' }
@@ -19,12 +19,12 @@ class ReviewsController < ApplicationController
     @book = Book.find(@review.book_id)
     respond_to do |format|
       if @review.update(review_params)
-        flash[:notice] = 'コメントを更新しました。'
+        flash[:notice] = t('reviews.notice.update')
         format.js { render js: "window.location = '#{book_url(@book)}'" }
-        #format.json { render :show, status: :ok, location: @review }
+        # format.json { render :show, status: :ok, location: @review }
       else
         format.js { render 'review' }
-        #format.json { render json: @review.errors, status: :unprocessable_entity }
+        # format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -33,18 +33,19 @@ class ReviewsController < ApplicationController
     @book = Book.find(@review.book_id)
     @review.destroy
     respond_to do |format|
-      flash[:notice] = 'コメントを削除しました。'
+      flash[:notice] = t('reviews.notice.destroy')
       format.js { render js: "window.location = '#{book_url(@book)}'" }
-      #format.json { head :no_content }
+      # format.json { head :no_content }
     end
   end
 
   private
-    def review_params
-      params.require(:review).permit(:comment)
-    end
 
-    def set_review
-      @review = Review.find(params[:id])
-    end
+  def review_params
+    params.require(:review).permit(:comment)
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
+  end
 end

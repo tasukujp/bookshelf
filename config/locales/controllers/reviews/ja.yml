@@ -1,0 +1,6 @@
+ja:
+  reviews:
+    notice:
+      create: コメントを登録しました。
+      update: コメントを更新しました。
+      destroy: コメントを削除しました。

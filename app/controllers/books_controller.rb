@@ -15,7 +15,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-      redirect_to root_url, notice: t('books.new.message.notice')
+      redirect_to root_url, notice: t('books.notice.create')
     else
       render 'new'
     end
@@ -31,7 +31,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-      redirect_to @book, notice: t('books.edit.message.notice')
+      redirect_to @book, notice: t('books.notice.update')
     else
       render 'edit'
     end
@@ -39,7 +39,7 @@ class BooksController < ApplicationController
 
   def destroy
     Book.find(params[:id]).destroy
-    redirect_to root_path, notice: t('books.destroy.message.notice', title: @book.title)
+    redirect_to root_path, notice: t('books.notice.destroy', title: @book.title)
   end
 
   private
