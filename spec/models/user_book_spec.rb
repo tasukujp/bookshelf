@@ -6,6 +6,11 @@ RSpec.describe UserBook, type: :model do
     it { is_expected.to belong_to(:book).counter_cache(:users_count) }
   end
 
+  describe 'delegates' do
+    it { is_expected.to delegate_method(:title).to(:book).with_prefix(true) }
+    it { is_expected.to delegate_method(:image).to(:book).with_prefix(true) }
+  end
+
   describe 'validations' do
     it { is_expected.to validate_presence_of(:user_id) }
     it { is_expected.to validate_presence_of(:book_id) }

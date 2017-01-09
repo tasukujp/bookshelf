@@ -4,6 +4,8 @@ class UserBook < ActiveRecord::Base
   belongs_to :user, counter_cache: :books_count
   belongs_to :book, counter_cache: :users_count
 
+  delegate :title, :image, to: :book, prefix: true
+
   validates :user_id, presence: true
   validates :book_id, presence: true
   validates :rental_date, presence: true

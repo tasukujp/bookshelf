@@ -25,10 +25,10 @@
             - if user_book.return_date.blank?
               .row.rental-item
                 .col-md-12
-                  = image_tag book_image_or_default(user_book.book.image), width: 100, height: 130
+                  = image_tag book_image_or_default(user_book.book_image), width: 100, height: 130
                   = form_for(user_book, remote: true) do |f|
                     = f.submit t('.return'), class: 'btn btn-default', title: t('.return_title'),
-                        data: { confirm: t('.book_return_confirm', title: user_book.book.title),
+                        data: { confirm: t('.book_return_confirm', title: user_book.book_title),
                                 commit: t('.commit'), cancel: t('.cancel') }
   .col-md-6
     %h2=t('.rental_history')
