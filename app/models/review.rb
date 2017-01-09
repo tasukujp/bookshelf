@@ -7,6 +7,15 @@ class Review < ActiveRecord::Base
   validates :book_id, presence: true
   validates :comment, presence: true
 
+  class << self
+    # 本に紐づくレビューを取得
+    # @param [Book] Bookオブジェクト
+    # @return [Array] Reviewの配列
+    def get_reviews(book)
+      Review.where(book_id: book.id).order(id: :desc)
+    end
+  end
+
   # レビューを登録
   # @param [User] ユーザーオブジェクト
   # @param [String] コメント
@@ -15,12 +24,5 @@ class Review < ActiveRecord::Base
     self.user_id = user.id
     self.comment = comment
     save
-  end
-
-  # 本に紐づくレビューを取得
-  # @param [Book] Bookオブジェクト
-  # @return [Array] Reviewの配列
-  def self.get_reviews(book)
-    Review.where(book_id: book.id).order(created_at: :desc)
   end
 end
