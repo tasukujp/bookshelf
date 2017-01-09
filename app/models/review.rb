@@ -3,8 +3,6 @@ class Review < ActiveRecord::Base
   belongs_to :user, counter_cache: :reviews_count
   belongs_to :book, counter_cache: :reviews_count
 
-  default_scope { order(created_at: :desc) }
-
   validates :user_id, presence: true, uniqueness: { scope: :book_id }
   validates :book_id, presence: true
   validates :comment, presence: true
@@ -23,6 +21,6 @@ class Review < ActiveRecord::Base
   # @param [Book] Bookオブジェクト
   # @return [Array] Reviewの配列
   def self.get_reviews(book)
-    Review.where(book_id: book.id)
+    Review.where(book_id: book.id).order(created_at: :desc)
   end
 end

@@ -8,6 +8,6 @@ class BooksSearch < ApplicationSearch
     results = results.where('author LIKE ?', "%#{author}%") if author.present?
     results = results.where('publisher LIKE ?', "%#{publisher}%") if publisher.present?
     results = results.where('published >= ?', published) if published.present?
-    results
+    results.order(created_at: :desc)
   end
 end

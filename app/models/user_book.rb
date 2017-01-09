@@ -4,8 +4,6 @@ class UserBook < ActiveRecord::Base
   belongs_to :user, counter_cache: :books_count
   belongs_to :book, counter_cache: :users_count
 
-  default_scope { order(rental_date: :desc) }
-
   validates :user_id, presence: true
   validates :book_id, presence: true
   validates :rental_date, presence: true
@@ -16,7 +14,7 @@ class UserBook < ActiveRecord::Base
     # @param [User] ユーザーオブジェクト
     # @return [Array] UserBookとBookの配列
     def get_rental_history(user)
-      UserBook.where(user_id: user.id)
+      UserBook.where(user_id: user.id).order(rental_date: :desc)
     end
   end
 
