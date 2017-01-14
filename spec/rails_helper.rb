@@ -62,6 +62,8 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  config.include AbstractController::Translation
 end
 
 Shoulda::Matchers.configure do |config|

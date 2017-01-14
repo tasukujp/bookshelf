@@ -2,7 +2,6 @@ ja:
   books:
     index:
       title: 本棚
-      empty: 条件に該当する本が見つかりませんでした。
     form:
       back: 戻る
     new:

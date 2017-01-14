@@ -17,14 +17,24 @@ RSpec.describe BooksController, type: :controller do
 
     context 'with assign all books' do
       before do
-        allow(BooksSearch).to receive(:new).with(search_params).and_return books_search
-        get :index, books_search: nil
+        allow(BooksSearch).to receive(:new).with(search_params).and_return(books_search)
+        get :index, books_search: search_params, page: 1
       end
 
       it { is_expected.to respond_with :success }
       it { is_expected.to render_template :index }
       it { expect(assigns(:books)).to match_array books }
-      it { expect(assigns(:books_search)).to eq books_search }
+    end
+
+    context 'with no assign books' do
+      before do
+        allow(Book).to receive(:all).and_return(Book.none)
+        get :index, books_search: search_params, page: 1
+      end
+
+      it { is_expected.to respond_with :success }
+      it { is_expected.to render_template :index }
+      it { expect(flash.now[:alert]).to eq t('books.alert.index') }
     end
   end
 
@@ -73,7 +83,7 @@ RSpec.describe BooksController, type: :controller do
       subject { proc { post :create, book: valid_attributes } }
       it { subject.call; expect(response).to have_http_status :redirect }
       it { subject.call; expect(response).to redirect_to root_url }
-      it { subject.call; expect(flash[:notice]).to eq I18n.t('books.notice.create') }
+      it { subject.call; expect(flash[:notice]).to eq t('books.notice.create') }
       it { expect { subject.call }.to change(Book, :count).by(1) }
     end
 
@@ -93,7 +103,7 @@ RSpec.describe BooksController, type: :controller do
 
       it { is_expected.to respond_with :redirect }
       it { is_expected.to redirect_to book_url(book) }
-      it { expect(flash[:notice]).to eq I18n.t('books.notice.update') }
+      it { expect(flash[:notice]).to eq t('books.notice.update') }
     end
 
     context 'with invalid params' do
@@ -114,7 +124,7 @@ RSpec.describe BooksController, type: :controller do
 
       it { is_expected.to respond_with :redirect }
       it { is_expected.to redirect_to root_url }
-      it { expect(flash[:notice]).to eq I18n.t('books.notice.destroy', title: book.title) }
+      it { expect(flash[:notice]).to eq t('books.notice.destroy', title: book.title) }
     end
   end
 end

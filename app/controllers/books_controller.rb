@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   def index
     @books_search = BooksSearch.new(params[:books_search])
     @books = @books_search.search.paginate(page: params[:page], per_page: 10)
-    flash.now[:alert] = t('books.index.empty') unless @books.exists?
+    flash.now[:alert] = t('books.alert.index') unless @books.exists?
   end
 
   def new

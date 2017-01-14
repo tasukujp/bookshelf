@@ -4,3 +4,5 @@ ja:
       create: 本を登録しました。
       update: 登録情報を更新しました。
       destroy: '%{title} を削除しました。'
+    alert:
+      index: 条件に該当する本が見つかりませんでした。
