@@ -53,7 +53,6 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'pry-rails'
@@ -65,6 +64,11 @@ group :development do
   gem 'rubocop', require: false
   # Rails Panel of chrome extension
   gem 'meta_request'
+  # Use Capistrano for deployment
+  gem 'capistrano', '~> 3.7'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
 end
 
 group :test do
