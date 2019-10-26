@@ -20,7 +20,6 @@ RSpec.describe User, type: :model do
 
     context 'uniqueness' do
       subject { build(:user) }
-      it { is_expected.to validate_uniqueness_of(:name).case_insensitive }
       it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
     end
   end
