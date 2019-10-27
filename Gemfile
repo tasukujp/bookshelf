@@ -57,11 +57,9 @@ group :development do
   gem 'spring'
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'hirb'
-  gem 'hirb-unicode'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'rubocop', require: false
+  gem 'rubocop', '~> 0.75.1', require: false
   # Rails Panel of chrome extension
   gem 'meta_request'
   # Use Capistrano for deployment
