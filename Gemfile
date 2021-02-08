@@ -40,7 +40,7 @@ gem 'font-awesome-rails'
 # pagination
 gem 'will_paginate', '~> 3.1.0'
 # Use upload for image
-gem 'carrierwave', '~> 0.10.0'
+gem 'carrierwave', '~> 1.3.2'
 gem 'mini_magick', '~> 4.5.0'
 
 group :development, :test do
